@@ -11,25 +11,26 @@ class Cube extends Component {
   // TODO: change perspective so that 'up' always means 'up'
   // even when cube is upside down
   rotate = e => {
+    e.preventDefault();
     switch (e.keyCode) {
       case 37:
         this.setState(prev => {
-          return { xAngle: (prev.xAngle -= 90) };
+          return { xAngle: (prev.xAngle -= 20) };
         });
         break;
       case 38:
         this.setState(prev => {
-          return { xAngle: (prev.xAngle += 90) };
+          return { xAngle: (prev.xAngle += 20) };
         });
         break;
       case 39:
         this.setState(prev => {
-          return { yAngle: (prev.yAngle += 90) };
+          return { yAngle: (prev.yAngle += 20) };
         });
         break;
       case 40:
         this.setState(prev => {
-          return { yAngle: (prev.yAngle -= 90) };
+          return { yAngle: (prev.yAngle -= 20) };
         });
         break;
       default:

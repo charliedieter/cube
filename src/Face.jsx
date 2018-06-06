@@ -27,8 +27,8 @@ class Face extends Component {
 
   render() {
     const { face } = this.props;
-    const tiles = this.state.tiles.map(tile => (
-      <Tile key={`tile-${tile}`} tile={tile} face={face} />
+    const tiles = this.state.tiles.map((tile, idx) => (
+      <Tile key={`tile-${tile}`} tile={tile} face={face} idx={idx} />
     ));
 
     return <div className={`face ${face}`}>{tiles}</div>;

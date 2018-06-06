@@ -22,10 +22,9 @@ body {
 
 .face {
   position: absolute;
-  height: 360px;
-  width: 360px;
-  padding: 20px;
-  background-color: rgba(50, 50, 50, 0.01);
+  height: 400px;
+  width: 400px;
+  background-color: rgba(50, 50, 50, 0.1);
 }
 
 #cube .up {
@@ -52,16 +51,13 @@ body {
   -webkit-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
 }
 
-#cube .face .tile {
+.tile {
   position: absolute;
   margin: 1px;
   border: 1px solid black;
   border-radius: 10px;
-  width: 120px;
-  height: 120px;
-  text-align: center;
-  font-size: 30px;
-  background-color: purple;
+  width: 130px;
+  height: 130px;
 }
 
 /*UP FACE CUBIES*/
