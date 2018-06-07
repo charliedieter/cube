@@ -5,32 +5,30 @@ export const RotationContext = React.createContext({ xAngle: 45, yAngle: 45 });
 class Cube extends Component {
   state = {
     xAngle: -30,
-    yAngle: 30
+    yAngle: -45
   };
 
-  // TODO: change perspective so that 'up' always means 'up'
-  // even when cube is upside down
   rotate = e => {
     e.preventDefault();
     switch (e.keyCode) {
       case 37:
         this.setState(prev => {
-          return { xAngle: (prev.xAngle -= 20) };
+          return { yAngle: (prev.yAngle -= 90) };
         });
         break;
       case 38:
         this.setState(prev => {
-          return { xAngle: (prev.xAngle += 20) };
+          return { xAngle: (prev.xAngle += 90) };
         });
         break;
       case 39:
         this.setState(prev => {
-          return { yAngle: (prev.yAngle += 20) };
+          return { yAngle: (prev.yAngle += 90) };
         });
         break;
       case 40:
         this.setState(prev => {
-          return { yAngle: (prev.yAngle -= 20) };
+          return { xAngle: (prev.xAngle -= 90) };
         });
         break;
       default:

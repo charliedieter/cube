@@ -1,7 +1,20 @@
+/* @keyframes spin {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  50% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+  100% {
+    transform: rotateX(0) rotateY(0);
+  }
+} */
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: radial-gradient(#ffffff, #eee);
 }
 /* https://paulrhayes.com/animated-css3-cube-interface-using-3d-transforms/ */
 #cube-container {
@@ -16,15 +29,17 @@ body {
   margin: auto;
   height: 400px;
   width: 400px;
-  -webkit-transition: -webkit-transform 1s linear;
+  -webkit-transition: -webkit-transform 0.2s linear;
   -webkit-transform-style: preserve-3d;
+  /* animation: spin 6s ease-in-out infinite; */
 }
 
 .face {
   position: absolute;
   height: 400px;
   width: 400px;
-  background-color: rgba(50, 50, 50, 0.1);
+  background-color: black;
+  border-radius: 1px;
 }
 
 #cube .up {
@@ -54,10 +69,11 @@ body {
 .tile {
   position: absolute;
   margin: 1px;
-  border: 1px solid black;
+  border: 4px solid black;
   border-radius: 10px;
-  width: 130px;
-  height: 130px;
+  box-sizing: border-box;
+  width: 133px;
+  height: 133px;
 }
 
 /*UP FACE CUBIES*/

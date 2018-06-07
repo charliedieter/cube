@@ -17,7 +17,7 @@ class Tile extends Component {
       <RotationContext.Consumer>
         {rotation => (
           <div
-            className={`tile ${tile}`}
+            className={`tile ${tile} ${face}`}
             style={{ backgroundColor, transform: `${translate}` }}
           />
         )}
