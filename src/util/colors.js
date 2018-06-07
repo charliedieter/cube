@@ -1,10 +1,10 @@
 const COLORS = {
-  front: "blue",
-  back: "green",
-  up: "red",
-  down: "white",
-  left: "orange",
-  right: "yellow"
+  f: "blue",
+  b: "green",
+  u: "red",
+  d: "white",
+  l: "orange",
+  r: "yellow"
 };
 
 export default COLORS;

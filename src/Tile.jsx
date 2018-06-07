@@ -1,24 +1,25 @@
 import React, { Component } from "react";
-import { RotationContext } from "./Cube";
-import COLORS from "./util/colors";
 import POSITIONS from "./util/positions";
 
 class Tile extends Component {
   state = {
-    backgroundColor: COLORS[this.props.face]
+    tile: this.props.tile
   };
 
   render() {
-    const { tile, face, idx } = this.props;
-    const { backgroundColor } = this.state;
+    const { tile } = this.state;
+    const { backgroundColor } = this.props;
+    const transform = POSITIONS[tile];
 
-    const translate = POSITIONS[idx];
     return (
-      <RotationContext.Consumer>
-        {rotation => (
-          <div className={`tile ${tile} `} style={{ backgroundColor }} />
-        )}
-      </RotationContext.Consumer>
+      <div
+        className={`tile ${tile}`}
+        style={{
+          backgroundColor,
+          transform
+        }}
+        onClick={this.twist}
+      />
     );
   }
 }
