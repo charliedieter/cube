@@ -1,14 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { makeChanges } from "../redux/actions";
+import { transitionSlice } from "../util/animation_util";
 
 const SpinningSlice = ({
   children,
-  cubeObject,
   axis,
   movement,
   cube,
-  makeChanges
+  makeChanges,
+  queue,
+  allTiles
 }) => {
   let direction = movement.split("-")[1];
 
@@ -16,13 +18,12 @@ const SpinningSlice = ({
     direction = direction === "left" ? "right" : "left";
   }
 
-  console.log(direction, axis);
   return (
     <div
       className="slice"
       style={{
         transformStyle: "preserve-3d",
-        transformOrigin: "200px 200px",
+        transformOrigin: "203px 203px",
         animation: `SpinningSlice-${direction}-${axis} .4s`
       }}
       onAnimationEnd={() => makeChanges(cube, movement)}

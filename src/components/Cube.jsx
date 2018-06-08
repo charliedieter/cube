@@ -7,8 +7,7 @@ import { transitionSlice } from "../util/animation_util";
 class Cube extends Component {
   state = {
     xAngle: -30,
-    yAngle: -45,
-    spinQueue: []
+    yAngle: -45
   };
 
   rotate = e => {
@@ -47,8 +46,8 @@ class Cube extends Component {
   };
 
   render() {
-    const { spinQueue, xAngle, yAngle } = this.state;
-    const { cube } = this.props;
+    const { xAngle, yAngle } = this.state;
+    const { cube, queue } = this.props;
 
     const tiles = cube.map(tile => (
       <Tile
@@ -66,7 +65,7 @@ class Cube extends Component {
             transform: `rotateX(${xAngle}deg) rotateY(${yAngle}deg)`
           }}
         >
-          {spinQueue.length ? transitionSlice(cube, tiles, spinQueue) : tiles}
+          {queue.length ? transitionSlice(cube, tiles, queue) : tiles}
         </div>
       </div>
     );
@@ -74,7 +73,8 @@ class Cube extends Component {
 }
 
 const msp = state => ({
-  cube: state.cube
+  cube: state.cube,
+  queue: state.queue
 });
 
 export default connect(msp)(Cube);

@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import arrow from "../arrow.svg";
 import MOVEMENTS from "../util/movements";
+import { enqueue } from "../redux/actions";
 
 const Arrows = ({ addToQueue }) => {
   const arrows = Object.keys(MOVEMENTS).map(d => (
@@ -8,7 +10,7 @@ const Arrows = ({ addToQueue }) => {
       src={arrow}
       alt="arrow"
       className={`arrow ${d}`}
-      onClick={() => addToQueue(d)}
+      onClick={() => addToQueue([d])}
       key={`arrow-${d}`}
     />
   ));
@@ -16,4 +18,8 @@ const Arrows = ({ addToQueue }) => {
   return arrows;
 };
 
-export default Arrows;
+const mdp = dispatch => ({
+  addToQueue: move => dispatch(enqueue(move))
+});
+
+export default connect(null, mdp)(Arrows);
