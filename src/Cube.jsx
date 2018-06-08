@@ -1,31 +1,8 @@
 import React, { Component } from "react";
 import Tile from "./Tile";
-import arrow from "./arrow.svg";
+import Arrow from "./Arrow";
 import * as cube from "./util/cube_util";
-
-var CUBIE_MOVEMENTS = {
-  utl: "btl",
-  ucl: "bcl",
-  ubl: "bbl",
-  ftl: "utl",
-  fcl: "ucl",
-  fbl: "ubl",
-  dtl: "ftl",
-  dcl: "fcl",
-  dbl: "fbl",
-  btl: "dtl",
-  bcl: "dcl",
-  bbl: "dbl",
-  ltl: "lbl",
-  lcl: "lbc",
-  lbl: "lbr",
-  ltc: "lcl",
-  lbc: "lcr",
-  ltr: "ltl",
-  lcr: "ltc",
-  lbr: "ltr",
-  lcc: "lcc"
-};
+import MOVEMENTS from "./util/movements";
 
 class Cube extends Component {
   state = {
@@ -67,12 +44,13 @@ class Cube extends Component {
     }
   };
 
-  twist = e => {
-    e.preventDefault();
+  twist = direction => {
+    console.log(direction);
     this.setState(p => {
       const tiles = p.tiles.map(tile => {
-        if (CUBIE_MOVEMENTS[tile["position"]]) {
-          tile["position"] = CUBIE_MOVEMENTS[tile["position"]];
+        const dir = MOVEMENTS[direction];
+        if (dir[tile["position"]]) {
+          tile["position"] = dir[tile["position"]];
         }
         return tile;
       });
@@ -83,22 +61,28 @@ class Cube extends Component {
   render() {
     const { tiles, xAngle, yAngle } = this.state;
 
+    const arrows = Object.keys(MOVEMENTS).map(d => {
+      return <Arrow direction={d} key={`arrow-${d}`} twist={this.twist} />;
+    });
+
+    let squares = tiles.map(tile => (
+      <Tile
+        key={`tile-${tile["position"]}`}
+        tile={tile["position"]}
+        backgroundColor={tile["color"]}
+      />
+    ));
+
     return (
       <div id="cube-container" onKeyDown={this.rotate} tabIndex="0">
-        <img src={arrow} className="arrow" onClick={this.twist} />
+        {arrows}
         <div
           id="cube"
           style={{
             transform: `rotateX(${xAngle}deg) rotateY(${yAngle}deg)`
           }}
         >
-          {tiles.map(tile => (
-            <Tile
-              key={`tile-${tile["position"]}`}
-              tile={tile["position"]}
-              backgroundColor={tile["color"]}
-            />
-          ))}
+          {squares}
         </div>
       </div>
     );
