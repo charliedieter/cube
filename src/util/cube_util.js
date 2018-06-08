@@ -1,5 +1,6 @@
 // TODO: probably a better way to do this (css classes) 🤷‍
 import COLORS from "./colors";
+import MOVEMENTS from "./movements";
 
 export const createTiles = () => {
   const faces = ["up", "front", "down", "left", "right", "back"];
@@ -15,8 +16,18 @@ export const createTiles = () => {
       }
     }
   }
-
   return tiles;
 };
 
-export const scramble = cube => {};
+export const setChanges = (cube, movement) => {
+  console.log(cube, movement);
+  const dir = MOVEMENTS[movement];
+  const tiles = cube.slice();
+  const newTiles = tiles.map(tile => {
+    if (dir[tile["position"]]) {
+      tile["position"] = dir[tile["position"]];
+    }
+    return tile;
+  });
+  return newTiles;
+};

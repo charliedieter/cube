@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import POSITIONS from "./util/positions";
+import POSITIONS from "../util/positions";
 
 class Tile extends Component {
   state = {

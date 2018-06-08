@@ -1,5 +1,5 @@
 import React from "react";
-import arrow from "./arrow.svg";
+import arrow from "../arrow.svg";
 
 const Arrow = ({ twist, direction }) => {
   return (

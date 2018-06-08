@@ -1,20 +1,19 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Tile from "./Tile";
 import Arrow from "./Arrow";
-import * as cube from "./util/cube_util";
-import MOVEMENTS from "./util/movements";
+import { transitionSlice } from "../util/animation_util";
+import MOVEMENTS from "../util/movements";
 
 class Cube extends Component {
   state = {
     xAngle: -30,
-    yAngle: -45,
-    tiles: []
+    yAngle: -45
   };
 
-  componentDidMount() {
-    const tiles = cube.createTiles();
-    this.setState({ tiles });
-  }
+  static defaultProps = {
+    spinQueue: ["LM-left"]
+  };
 
   rotate = e => {
     e.preventDefault();
@@ -44,48 +43,38 @@ class Cube extends Component {
     }
   };
 
-  twist = direction => {
-    this.setState(p => {
-      const tiles = p.tiles.map(tile => {
-        const dir = MOVEMENTS[direction];
-        if (dir[tile["position"]]) {
-          tile["position"] = dir[tile["position"]];
-        }
-        return tile;
-      });
-      return { tiles };
-    });
-  };
-
   render() {
-    const { tiles, xAngle, yAngle } = this.state;
-
+    const { xAngle, yAngle } = this.state;
+    const { cube, spinQueue } = this.props;
     const arrows = Object.keys(MOVEMENTS).map(d => {
       return <Arrow direction={d} key={`arrow-${d}`} twist={this.twist} />;
     });
-
-    let allTiles = tiles.map(tile => (
+    const tiles = cube.map(tile => (
       <Tile
         key={`${tile["position"]}`}
         tile={tile["position"]}
         backgroundColor={tile["color"]}
       />
     ));
-    debugger;
     return (
       <div id="cube-container" onKeyDown={this.rotate} tabIndex="0">
-        {arrows}
         <div
           id="cube"
           style={{
             transform: `rotateX(${xAngle}deg) rotateY(${yAngle}deg)`
           }}
         >
-          {allTiles}
+          {spinQueue.length ? transitionSlice(cube, tiles, spinQueue) : tiles}
         </div>
       </div>
     );
   }
 }
 
-export default Cube;
+const msp = state => ({
+  cube: state.cube
+});
+
+export default connect(msp)(Cube);
+
+// {spinQueue.length ? transitionSlice(allTiles, spinQueue) : allTiles}

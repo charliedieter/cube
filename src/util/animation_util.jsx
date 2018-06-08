@@ -1,16 +1,21 @@
-import SpinningSlice from "./SpinningSlice";
+import React from "react";
+import SpinningSlice from "../components/SpinningSlice";
 import MOVEMENTS from "./movements";
 
-export const transitionSlice = ({ allTiles, rotation, axis }) => {
-  const toSlice = Object.keys(MOVEMENTS[rotation]);
+export const transitionSlice = (cubeObject, allTiles, spinQueue) => {
+  while (spinQueue.length) {
+    const movement = spinQueue.pop();
+    const toSlice = Object.keys(MOVEMENTS[movement]);
 
-  const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key));
-  const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key));
+    const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key));
+    const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key));
+    const axis = "x";
 
-  const props = { axis, rotation };
+    const props = { cubeObject, axis, movement };
 
-  return [
-    <SpinningSlice {...props}>{slicedTiles}</SpinningSlice>,
-    ...unslicedTiles
-  ];
+    return [
+      <SpinningSlice {...props}>{slicedTiles}</SpinningSlice>,
+      ...unslicedTiles
+    ];
+  }
 };
