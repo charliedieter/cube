@@ -6,10 +6,10 @@ export const transitionSlice = (cubeObject, allTiles, spinQueue) => {
   while (spinQueue.length) {
     const movement = spinQueue.pop();
     const toSlice = Object.keys(MOVEMENTS[movement]);
-
+    console.log(movement);
     const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key));
     const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key));
-    const axis = "x";
+    const axis = movement[1] === "E" ? "y" : "x";
 
     const props = { cubeObject, axis, movement };
 

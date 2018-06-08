@@ -10,14 +10,20 @@ const SpinningSlice = ({
   cube,
   makeChanges
 }) => {
-  const direction = movement.split("-")[1];
+  let direction = movement.split("-")[1];
+  //swap for y for some reason
+  if (axis === "y") {
+    direction = direction === "left" ? "right" : "left";
+  }
+
+  console.log(direction, axis);
   return (
     <div
       className="slice"
       style={{
         transformStyle: "preserve-3d",
         transformOrigin: "200px 200px",
-        animation: `SpinningSlice-${direction}-${axis} 1s`
+        animation: `SpinningSlice-${direction}-${axis} .4s`
       }}
       onAnimationEnd={() => makeChanges(cube, movement)}
     >
