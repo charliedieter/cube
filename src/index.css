@@ -34,6 +34,12 @@ body {
   /* animation: spin 6s ease-in-out infinite; */
 }
 
+#scramble-button {
+  position: absolute;
+  cursor: pointer;
+  margin: 0 200px;
+}
+
 .face {
   display: contents;
 }
@@ -53,7 +59,7 @@ body {
   transform-origin: center;
   width: 50px;
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.1;
   cursor: pointer;
 }
 

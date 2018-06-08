@@ -44,8 +44,13 @@ class Cube extends Component {
     }
   };
 
+  scramble = e => {
+    e.preventDefault();
+    const tiles = cube.scramble(this.state.tiles);
+    this.setState({ tiles });
+  };
+
   twist = direction => {
-    console.log(direction);
     this.setState(p => {
       const tiles = p.tiles.map(tile => {
         const dir = MOVEMENTS[direction];
@@ -75,6 +80,9 @@ class Cube extends Component {
 
     return (
       <div id="cube-container" onKeyDown={this.rotate} tabIndex="0">
+        <div id="scramble-button" onClick={this.scramble}>
+          SCRAMBLE EM
+        </div>
         {arrows}
         <div
           id="cube"
