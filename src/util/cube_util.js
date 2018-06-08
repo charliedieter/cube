@@ -20,7 +20,6 @@ export const createTiles = () => {
 };
 
 export const setChanges = (cube, movement) => {
-  console.log(cube, movement);
   const dir = MOVEMENTS[movement];
   const tiles = cube.slice();
   const newTiles = tiles.map(tile => {

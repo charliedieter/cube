@@ -11,7 +11,6 @@ const SpinningSlice = ({
   makeChanges
 }) => {
   const direction = movement.split("-")[1];
-  console.log(cube, movement);
   return (
     <div
       className="slice"

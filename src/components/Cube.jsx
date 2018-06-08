@@ -1,18 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Tile from "./Tile";
-import Arrow from "./Arrow";
+import Arrows from "./Arrows";
 import { transitionSlice } from "../util/animation_util";
-import MOVEMENTS from "../util/movements";
 
 class Cube extends Component {
   state = {
     xAngle: -30,
-    yAngle: -45
-  };
-
-  static defaultProps = {
-    spinQueue: ["LM-left"]
+    yAngle: -45,
+    spinQueue: []
   };
 
   rotate = e => {
@@ -43,12 +39,17 @@ class Cube extends Component {
     }
   };
 
-  render() {
-    const { xAngle, yAngle } = this.state;
-    const { cube, spinQueue } = this.props;
-    const arrows = Object.keys(MOVEMENTS).map(d => {
-      return <Arrow direction={d} key={`arrow-${d}`} twist={this.twist} />;
+  addToQueue = movement => {
+    this.setState(p => {
+      const spinQueue = [...p.spinQueue, movement];
+      return { spinQueue };
     });
+  };
+
+  render() {
+    const { spinQueue, xAngle, yAngle } = this.state;
+    const { cube } = this.props;
+
     const tiles = cube.map(tile => (
       <Tile
         key={`${tile["position"]}`}
@@ -58,6 +59,7 @@ class Cube extends Component {
     ));
     return (
       <div id="cube-container" onKeyDown={this.rotate} tabIndex="0">
+        <Arrows addToQueue={this.addToQueue} />
         <div
           id="cube"
           style={{
@@ -76,5 +78,3 @@ const msp = state => ({
 });
 
 export default connect(msp)(Cube);
-
-// {spinQueue.length ? transitionSlice(allTiles, spinQueue) : allTiles}

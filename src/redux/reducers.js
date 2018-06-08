@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { SET_CHANGES } from "./actions";
-import { createTiles, setChanges } from "../util/cube_util";
+import { createTiles } from "../util/cube_util";
 
 const cube = (oldState = createTiles(), action) => {
   switch (action.type) {
