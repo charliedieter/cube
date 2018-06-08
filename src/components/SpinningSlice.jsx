@@ -11,7 +11,7 @@ const SpinningSlice = ({
   makeChanges
 }) => {
   let direction = movement.split("-")[1];
-  //swap for y for some reason
+
   if (axis === "y") {
     direction = direction === "left" ? "right" : "left";
   }
