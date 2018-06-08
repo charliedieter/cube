@@ -1,5 +1,7 @@
 ## CUBE
 
+### [live](http://charliedieter.com/cubeLIVE)
+
 It's a React/Redux Rubik's Cube. I'm trying to make it visualize some algorithms that will solve it.
 
 Would not have been possible without the following geniuses:
