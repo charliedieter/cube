@@ -19,14 +19,4 @@ export const createTiles = () => {
   return tiles;
 };
 
-export const scramble = cube => {
-  const positions = cube.map(tile => tile["position"]);
-
-  for (let i = 0; i < positions.length; i++) {
-    const j = Math.floor(Math.random() * i + 1);
-    [positions[i], positions[j]] = [positions[j], positions[i]];
-  }
-  return cube.map((tile, idx) => {
-    return { position: positions[idx], color: tile.color };
-  });
-};
+export const scramble = cube => {};

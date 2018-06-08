@@ -15,12 +15,14 @@ body {
   padding: 0;
   font-family: sans-serif;
   background: radial-gradient(#ffffff, #eee);
+  font-family: "Dosis";
 }
+
 /* https://paulrhayes.com/animated-css3-cube-interface-using-3d-transforms/ */
 #cube-container {
   perspective: 800px;
   perspective-origin: 50% 200px;
-  margin: 250px auto;
+  margin: 125px auto;
   outline: none;
 }
 
@@ -31,18 +33,15 @@ body {
   width: 400px;
   transition: transform 0.3s linear;
   transform-style: preserve-3d;
+  background: #ccc;
   /* animation: spin 6s ease-in-out infinite; */
 }
 
-#scramble-button {
+/* #scramble-button {
   position: absolute;
   cursor: pointer;
-  margin: 0 200px;
-}
-
-.face {
-  display: contents;
-}
+  margin: 0 300px;
+} */
 
 .tile {
   position: absolute;
@@ -52,7 +51,6 @@ body {
   box-sizing: border-box;
   width: 105px;
   height: 105px;
-  transition: all 0.2s linear;
 }
 
 .arrow {

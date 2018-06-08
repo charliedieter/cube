@@ -80,9 +80,6 @@ class Cube extends Component {
 
     return (
       <div id="cube-container" onKeyDown={this.rotate} tabIndex="0">
-        <div id="scramble-button" onClick={this.scramble}>
-          SCRAMBLE EM
-        </div>
         {arrows}
         <div
           id="cube"
