@@ -44,12 +44,6 @@ class Cube extends Component {
     }
   };
 
-  scramble = e => {
-    e.preventDefault();
-    const tiles = cube.scramble(this.state.tiles);
-    this.setState({ tiles });
-  };
-
   twist = direction => {
     this.setState(p => {
       const tiles = p.tiles.map(tile => {
@@ -70,14 +64,14 @@ class Cube extends Component {
       return <Arrow direction={d} key={`arrow-${d}`} twist={this.twist} />;
     });
 
-    let squares = tiles.map(tile => (
+    let allTiles = tiles.map(tile => (
       <Tile
-        key={`tile-${tile["position"]}`}
+        key={`${tile["position"]}`}
         tile={tile["position"]}
         backgroundColor={tile["color"]}
       />
     ));
-
+    debugger;
     return (
       <div id="cube-container" onKeyDown={this.rotate} tabIndex="0">
         {arrows}
@@ -87,7 +81,7 @@ class Cube extends Component {
             transform: `rotateX(${xAngle}deg) rotateY(${yAngle}deg)`
           }}
         >
-          {squares}
+          {allTiles}
         </div>
       </div>
     );
