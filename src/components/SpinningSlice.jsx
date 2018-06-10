@@ -3,20 +3,27 @@ import { connect } from "react-redux";
 import { makeChanges } from "../redux/actions";
 import { transitionSlice } from "../util/animation_util";
 
-const SpinningSlice = ({ children, axis, movement, cube, makeChanges }) => {
+const SpinningSlice = ({
+  children,
+  axis,
+  movement,
+  cube,
+  makeChanges,
+  shuffling
+}) => {
   let direction = movement.split("-")[1];
-
+  shuffling = true;
   if (axis === "y" || axis === "z") {
     direction = direction === "left" ? "right" : "left";
   }
-
+  const duration = shuffling ? "0.2s" : "0.4s";
   return (
     <div
       className="slice"
       style={{
         transformStyle: "preserve-3d",
         transformOrigin: "203px 203px",
-        animation: `SpinningSlice-${direction}-${axis} .4s`
+        animation: `SpinningSlice-${direction}-${axis} ${duration}`
       }}
       onAnimationEnd={() => makeChanges(cube, movement)}
     >
