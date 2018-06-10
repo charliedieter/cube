@@ -3,17 +3,8 @@ import { connect } from "react-redux";
 import { makeChanges } from "../redux/actions";
 import { transitionSlice } from "../util/animation_util";
 
-const SpinningSlice = ({
-  children,
-  axis,
-  movement,
-  cube,
-  makeChanges,
-  queue,
-  allTiles
-}) => {
+const SpinningSlice = ({ children, axis, movement, cube, makeChanges }) => {
   let direction = movement.split("-")[1];
-
   if (axis === "y") {
     direction = direction === "left" ? "right" : "left";
   }
