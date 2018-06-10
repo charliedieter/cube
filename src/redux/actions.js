@@ -1,4 +1,5 @@
 import { setChanges } from "../util/cube_util";
+import MOVEMENTS from "../util/movements";
 
 export const SET_CHANGES = "SET_CHANGES";
 export const ENQUEUE = "ENQUEUE";
@@ -22,6 +23,15 @@ export const makeChanges = (cube, movement) => dispatch => {
   return dispatch(change(newCube));
 };
 
-export const enqueue = moves => dispatch => {
-  return dispatch(addToQueue(moves));
+export const enqueue = move => dispatch => {
+  return dispatch(addToQueue(move));
+};
+
+export const shuffle = () => dispatch => {
+  for (let i = 0; i < 30; i++) {
+    const moves = Object.keys(MOVEMENTS);
+    const move = moves[Math.floor(Math.random() * 1000) % moves.length];
+
+    setTimeout(() => dispatch(addToQueue([move])), 1000 * i);
+  }
 };

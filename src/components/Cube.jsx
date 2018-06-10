@@ -3,12 +3,17 @@ import { connect } from "react-redux";
 import Tile from "./Tile";
 import Arrows from "./Arrows";
 import { transitionSlice } from "../util/animation_util";
+import { shuffle } from "../redux/actions";
 
 class Cube extends Component {
   state = {
     xAngle: -30,
     yAngle: -45
   };
+
+  componentDidMount() {
+    this.props.shuffle();
+  }
 
   rotate = e => {
     e.preventDefault();
@@ -77,4 +82,8 @@ const msp = state => ({
   queue: state.queue
 });
 
-export default connect(msp)(Cube);
+const mdp = dispatch => ({
+  shuffle: () => dispatch(shuffle())
+});
+
+export default connect(msp, mdp)(Cube);
