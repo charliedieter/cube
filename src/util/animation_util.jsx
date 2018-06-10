@@ -8,7 +8,7 @@ export const transitionSlice = (cube, allTiles, queue) => {
   const toSlice = Object.keys(MOVEMENTS[movement]);
   const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key));
   const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key));
-  const axis = movement[1] === "E" ? "y" : "x";
+  const axis = movement[1] === "E" ? "y" : movement[1] === "S" ? "z" : "x";
 
   const props = { cube, allTiles, axis, movement };
 

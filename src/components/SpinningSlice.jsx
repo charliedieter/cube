@@ -5,7 +5,8 @@ import { transitionSlice } from "../util/animation_util";
 
 const SpinningSlice = ({ children, axis, movement, cube, makeChanges }) => {
   let direction = movement.split("-")[1];
-  if (axis === "y") {
+
+  if (axis === "y" || axis === "z") {
     direction = direction === "left" ? "right" : "left";
   }
 
