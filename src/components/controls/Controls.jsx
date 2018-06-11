@@ -1,13 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
 import ShuffleButton from "./ShuffleButton";
 import "../../styles/controls.css";
 
-const Controls = () => {
+const Controls = ({ shuffling }) => {
+  const display = shuffling ? "none" : "block";
   return (
-    <div>
+    <div style={{ display }}>
       <ShuffleButton />
     </div>
   );
 };
 
-export default Controls;
+const msp = state => ({
+  shuffling: state.shuffling
+});
+
+export default connect(msp)(Controls);

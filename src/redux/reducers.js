@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { SET_CHANGES, ENQUEUE } from "./actions";
+import { SET_CHANGES, ENQUEUE, START_SHUFFLE, END_SHUFFLE } from "./actions";
 import { createTiles } from "../util/cube_util";
 
 const cube = (oldState = createTiles(), action) => {
@@ -24,7 +24,21 @@ const queue = (oldState = [], action) => {
   }
 };
 
+const shuffling = (oldState = false, action) => {
+  switch (action.type) {
+    case START_SHUFFLE:
+      return true;
+      break;
+    case END_SHUFFLE:
+      return false;
+      break;
+    default:
+      return oldState;
+  }
+};
+
 export default combineReducers({
   cube,
-  queue
+  queue,
+  shuffling
 });

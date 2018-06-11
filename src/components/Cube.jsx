@@ -40,7 +40,7 @@ class Cube extends Component {
 
   render() {
     const { xAngle, yAngle } = this.state;
-    const { cube, queue } = this.props;
+    const { cube, queue, shuffling } = this.props;
 
     const tiles = cube.map(tile => (
       <Tile
@@ -51,7 +51,7 @@ class Cube extends Component {
     ));
     return (
       <div id="cube-container" onKeyDown={""} tabIndex="0">
-        <Arrows />
+        <Arrows shuffling={shuffling} />
         <div
           id="cube"
           style={{
@@ -67,7 +67,8 @@ class Cube extends Component {
 
 const msp = state => ({
   cube: state.cube,
-  queue: state.queue
+  queue: state.queue,
+  shuffling: state.shuffling
 });
 
 export default connect(msp, null)(Cube);

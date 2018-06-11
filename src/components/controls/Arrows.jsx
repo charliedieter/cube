@@ -4,7 +4,7 @@ import arrow from "./arrow.svg";
 import MOVEMENTS from "../../util/movements";
 import { enqueue } from "../../redux/actions";
 
-const Arrows = ({ addToQueue }) => {
+const Arrows = ({ addToQueue, shuffling }) => {
   const arrows = Object.keys(MOVEMENTS).map(d => (
     <img
       src={arrow}
@@ -15,7 +15,7 @@ const Arrows = ({ addToQueue }) => {
     />
   ));
 
-  return arrows;
+  return shuffling ? null : arrows;
 };
 
 const mdp = dispatch => ({
