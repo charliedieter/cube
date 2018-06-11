@@ -1,19 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Tile from "./Tile";
-import Arrows from "./Arrows";
-import { transitionSlice } from "../util/animation_util";
-import { shuffle } from "../redux/actions";
+import Arrows from "./controls/Arrows";
+import renderMove from "./Slice";
 
 class Cube extends Component {
   state = {
     xAngle: -30,
     yAngle: -45
   };
-
-  componentDidMount() {
-    this.props.shuffle();
-  }
 
   rotate = e => {
     e.preventDefault();
@@ -43,13 +38,6 @@ class Cube extends Component {
     }
   };
 
-  addToQueue = movement => {
-    this.setState(p => {
-      const spinQueue = [...p.spinQueue, movement];
-      return { spinQueue };
-    });
-  };
-
   render() {
     const { xAngle, yAngle } = this.state;
     const { cube, queue } = this.props;
@@ -62,15 +50,15 @@ class Cube extends Component {
       />
     ));
     return (
-      <div id="cube-container" onKeyDown={this.rotate} tabIndex="0">
-        <Arrows addToQueue={this.addToQueue} />
+      <div id="cube-container" onKeyDown={""} tabIndex="0">
+        <Arrows />
         <div
           id="cube"
           style={{
             transform: `rotateX(${xAngle}deg) rotateY(${yAngle}deg)`
           }}
         >
-          {queue.length ? transitionSlice(cube, tiles, queue) : tiles}
+          {queue.length ? renderMove(cube, tiles, queue) : tiles}
         </div>
       </div>
     );
@@ -82,8 +70,4 @@ const msp = state => ({
   queue: state.queue
 });
 
-const mdp = dispatch => ({
-  shuffle: () => dispatch(shuffle())
-});
-
-export default connect(msp, mdp)(Cube);
+export default connect(msp, null)(Cube);

@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import arrow from "../arrow.svg";
-import MOVEMENTS from "../util/movements";
-import { enqueue } from "../redux/actions";
+import arrow from "./arrow.svg";
+import MOVEMENTS from "../../util/movements";
+import { enqueue } from "../../redux/actions";
 
 const Arrows = ({ addToQueue }) => {
   const arrows = Object.keys(MOVEMENTS).map(d => (

@@ -31,6 +31,6 @@ export const shuffle = () => dispatch => {
   for (let i = 0; i < 60; i++) {
     const moves = Object.keys(MOVEMENTS);
     const move = moves[Math.floor(Math.random() * 1000) % moves.length];
-    setTimeout(() => dispatch(addToQueue([move])), 250 * i);
+    setTimeout(() => dispatch(addToQueue([move])), 220 * i);
   }
 };

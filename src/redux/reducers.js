@@ -14,7 +14,7 @@ const cube = (oldState = createTiles(), action) => {
 const queue = (oldState = [], action) => {
   switch (action.type) {
     case ENQUEUE:
-      return [...oldState, ...action.moves];
+      return [...action.moves, ...oldState];
     case SET_CHANGES:
       const newState = oldState.slice();
       newState.pop();
