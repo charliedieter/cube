@@ -1,5 +1,6 @@
 // Once again, eternally grateful to https://github.com/diervo/html5rubik/blob/master/tutorial/step3/rubik-simple.js
 // for doing all of the heavy lifting here.
+// TODO: change left/right to Clockwise/Counter clockwise
 const MOVEMENTS = {
   "LM-left": {
     utl: "btl",
@@ -360,68 +361,68 @@ const MOVEMENTS = {
     bcr: "bbc",
     bbr: "bbl",
     bcc: "bcc"
-  },
-  "ROTATE-RIGHT": {
-    ftl: "rbl",
-    fcl: "rbc",
-    fbl: "rbr",
-    ftc: "rcl",
-    fcc: "rcc",
-    fbc: "rcr",
-    ftr: "rtl",
-    fcr: "rtc",
-    fbr: "rtr",
-
-    ltl: "ftr",
-    lcl: "ftc",
-    lbl: "ftl",
-    ltc: "fcr",
-    lbc: "fcl",
-    ltr: "fbr",
-    lcr: "fbc",
-    lbr: "fbl",
-    lcc: "fcc",
-
-    btl: "lbr",
-    bcl: "lcr",
-    bbl: "ltr",
-    btc: "lbc",
-    bbc: "ltc",
-    btr: "lbl",
-    bcr: "lcl",
-    bbr: "ltl",
-    bcc: "lcc",
-
-    rtl: "bbr",
-    rcl: "bcr",
-    rbl: "btr",
-    rtc: "bbc",
-    rbc: "btc",
-    rtr: "bbl",
-    rcr: "bcl",
-    rbr: "btl",
-    rcc: "bcc",
-
-    utl: "ubl",
-    ucl: "ubc",
-    ubl: "ubr",
-    utc: "ucl",
-    ubc: "ucr",
-    utr: "utl",
-    ucr: "utc",
-    ubr: "utr",
-    ucc: "ucc",
-
-    dtl: "dbl",
-    dcl: "dbc",
-    dbl: "dbr",
-    dtc: "dcl",
-    dbc: "dcr",
-    dtr: "dtl",
-    dcr: "dtc",
-    dbr: "dtr",
-    dcc: "dcc"
   }
+  // "ROTATE-RIGHT": {
+  //   ftl: "rbl",
+  //   fcl: "rbc",
+  //   fbl: "rbr",
+  //   ftc: "rcl",
+  //   fcc: "rcc",
+  //   fbc: "rcr",
+  //   ftr: "rtl",
+  //   fcr: "rtc",
+  //   fbr: "rtr",
+  //
+  //   ltl: "ftr",
+  //   lcl: "ftc",
+  //   lbl: "ftl",
+  //   ltc: "fcr",
+  //   lbc: "fcl",
+  //   ltr: "fbr",
+  //   lcr: "fbc",
+  //   lbr: "fbl",
+  //   lcc: "fcc",
+  //
+  //   btl: "lbr",
+  //   bcl: "lcr",
+  //   bbl: "ltr",
+  //   btc: "lbc",
+  //   bbc: "ltc",
+  //   btr: "lbl",
+  //   bcr: "lcl",
+  //   bbr: "ltl",
+  //   bcc: "lcc",
+  //
+  //   rtl: "bbr",
+  //   rcl: "bcr",
+  //   rbl: "btr",
+  //   rtc: "bbc",
+  //   rbc: "btc",
+  //   rtr: "bbl",
+  //   rcr: "bcl",
+  //   rbr: "btl",
+  //   rcc: "bcc",
+  //
+  //   utl: "ubl",
+  //   ucl: "ubc",
+  //   ubl: "ubr",
+  //   utc: "ucl",
+  //   ubc: "ucr",
+  //   utr: "utl",
+  //   ucr: "utc",
+  //   ubr: "utr",
+  //   ucc: "ucc",
+  //
+  //   dtl: "dbl",
+  //   dcl: "dbc",
+  //   dbl: "dbr",
+  //   dtc: "dcl",
+  //   dbc: "dcr",
+  //   dtr: "dtl",
+  //   dcr: "dtc",
+  //   dbr: "dtr",
+  //   dcc: "dcc"
+  // }
 };
 
 export default MOVEMENTS;

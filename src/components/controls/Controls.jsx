@@ -1,13 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import ShuffleButton from "./ShuffleButton";
-import "../../styles/controls.css";
+import WhiteCrossButton from "./WhiteCrossButton";
+import "../../styles/Controls.css";
 
 const Controls = ({ shuffling }) => {
   const display = shuffling ? "none" : "block";
   return (
     <div style={{ display }}>
       <ShuffleButton />
+      <WhiteCrossButton />
     </div>
   );
 };

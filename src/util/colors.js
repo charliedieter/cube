@@ -1,8 +1,8 @@
 const COLORS = {
   f: "blue",
   b: "green",
-  u: "red",
-  d: "white",
+  u: "white",
+  d: "red",
   l: "orange",
   r: "yellow"
 };

@@ -4,10 +4,12 @@ import Tile from "./Tile";
 import Arrows from "./controls/Arrows";
 import renderMove from "./Slice";
 
+import { whiteCross } from "../redux/actions";
+
 class Cube extends Component {
   state = {
     xAngle: -30,
-    yAngle: -45
+    yAngle: -35
   };
 
   rotate = e => {
@@ -49,9 +51,9 @@ class Cube extends Component {
         backgroundColor={tile["color"]}
       />
     ));
+
     return (
       <div id="cube-container" onKeyDown={""} tabIndex="0">
-        <Arrows shuffling={shuffling} />
         <div
           id="cube"
           style={{
@@ -65,10 +67,16 @@ class Cube extends Component {
   }
 }
 
-const msp = state => ({
-  cube: state.cube,
-  queue: state.queue,
-  shuffling: state.shuffling
+const msp = ({ entities, ui }) => ({
+  cube: Object.values(entities.cube),
+  cubeObj: entities.cube,
+  queue: entities.queue,
+  shuffling: ui.shuffling,
+  whiteCrossAnimationActive: ui.whiteCrossAnimationActive
 });
 
-export default connect(msp, null)(Cube);
+const mdp = d => ({
+  wC: cube => d(whiteCross(cube))
+});
+
+export default connect(msp, mdp)(Cube);

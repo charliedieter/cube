@@ -5,10 +5,11 @@ import MOVEMENTS from "../util/movements";
 
 const Slice = ({ children, axis, movement, cube, makeChanges, shuffling }) => {
   let direction = movement.split("-")[1];
+
   if (axis === "y" || axis === "z") {
     direction = direction === "left" ? "right" : "left";
   }
-  const duration = "0.175s";
+  const duration = shuffling ? "0.175s" : ".4s";
 
   return (
     <div
@@ -25,9 +26,9 @@ const Slice = ({ children, axis, movement, cube, makeChanges, shuffling }) => {
   );
 };
 
-const msp = state => ({
-  cube: state.cube,
-  shuffling: state.shuffling
+const msp = ({ entities, ui }) => ({
+  cube: entities.cube,
+  shuffling: ui.shuffling
 });
 
 const mdp = dispatch => ({
@@ -38,7 +39,6 @@ const ConnectedSlice = connect(msp, mdp)(Slice);
 
 const renderMove = (cube, allTiles, queue) => {
   const movement = queue.pop();
-
   const toSlice = Object.keys(MOVEMENTS[movement]);
   const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key));
   const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key));
@@ -51,5 +51,4 @@ const renderMove = (cube, allTiles, queue) => {
     ...unslicedTiles
   ];
 };
-
 export default renderMove;

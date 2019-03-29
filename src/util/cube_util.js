@@ -6,13 +6,14 @@ export const createTiles = () => {
   const faces = ["up", "front", "down", "left", "right", "back"];
   const cols = ["l", "c", "r"];
   const rows = ["t", "c", "b"];
-  const tiles = [];
+  const tiles = {};
+
   for (let i = 0; i < faces.length; i++) {
     for (let j = 0; j < cols.length; j++) {
       for (let k = 0; k < rows.length; k++) {
         const position = faces[i][0] + rows[k] + cols[j];
         const color = COLORS[position[0]];
-        tiles.push({ position, color });
+        tiles[position] = { position, color };
       }
     }
   }
@@ -20,13 +21,16 @@ export const createTiles = () => {
 };
 
 export const setChanges = (cube, movement) => {
-  const dir = MOVEMENTS[movement];
-  const tiles = cube.slice();
-  const newTiles = tiles.map(tile => {
-    if (dir[tile["position"]]) {
-      tile["position"] = dir[tile["position"]];
+  const move = MOVEMENTS[movement];
+  const tiles = Object.values(cube);
+  const newTiles = {};
+
+  tiles.forEach(tile => {
+    if (move[tile["position"]]) {
+      tile["position"] = move[tile["position"]];
     }
-    return tile;
+    newTiles[[tile["position"]]] = tile;
   });
+
   return newTiles;
 };

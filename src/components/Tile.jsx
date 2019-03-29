@@ -19,7 +19,9 @@ class Tile extends Component {
           transform
         }}
         onClick={this.twist}
-      />
+      >
+        {tile}
+      </div>
     );
   }
 }

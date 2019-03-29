@@ -1,5 +1,12 @@
 import { combineReducers } from "redux";
-import { SET_CHANGES, ENQUEUE, START_SHUFFLE, END_SHUFFLE } from "./actions";
+import {
+  SET_CHANGES,
+  ENQUEUE,
+  START_SHUFFLE,
+  END_SHUFFLE,
+  START_WHITE_CROSS,
+  END_WHITE_CROSS
+} from "./actions";
 import { createTiles } from "../util/cube_util";
 
 const cube = (oldState = createTiles(), action) => {
@@ -37,8 +44,23 @@ const shuffling = (oldState = false, action) => {
   }
 };
 
+const whiteCrossActive = (oldState = false, action) => {
+  switch (action.type) {
+    case START_WHITE_CROSS:
+      return true;
+      break;
+    case END_WHITE_CROSS:
+      return false;
+      break;
+    default:
+      return oldState;
+  }
+};
+
+const entities = combineReducers({ cube, queue });
+const ui = combineReducers({ shuffling, whiteCrossActive });
+
 export default combineReducers({
-  cube,
-  queue,
-  shuffling
+  entities,
+  ui
 });
