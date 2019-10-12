@@ -30,9 +30,9 @@ function Slice({ children, axis, movement, cube, dispatch, shuffling }) {
   );
 };
 
-const msp = ({ entities, ui }) => ({
-  cube: entities.cube,
-  shuffling: ui.shuffling
+const msp = ({ entities: { cube }, ui: { shuffling } }) => ({
+  cube,
+  shuffling
 });
 
 

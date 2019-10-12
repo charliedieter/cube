@@ -1,24 +1,19 @@
-/* @keyframes spin {
-  0% {
-    transform: rotateX(0) rotateY(0);
-  }
-  50% {
-    transform: rotateX(360deg) rotateY(360deg);
-  }
-  100% {
-    transform: rotateX(0) rotateY(0);
-  }
-} */
-
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  font-family: "Dosis";
+  font-family: "Overpass Mono";
 }
 
 main {
   text-align: center;
+  animation: fade-in 300ms ease-in forwards;
+}
+
+.home .control {
+  text-decoration: none;
+  animation: fade-in 500ms ease-in forwards;
+  animation-delay: .5s;
 }
 
 .control {
@@ -31,6 +26,7 @@ main {
   border-radius: 6px;
   box-shadow:  1px 1px 10px -5px blues, 2px 2px 20px -10px blue;
   transition: box-shadow 200ms ease-in-out;
+  margin: auto .5rem;
 }
 
 .control:hover {
@@ -52,7 +48,11 @@ main {
   width: 400px;
   transition: transform 0.3s linear;
   transform-style: preserve-3d;
-  /* animation: spin 6s ease-in-out infinite; */
+}
+
+#cube.spin {
+  animation: spin-cube 6s ease-in-out infinite;
+  /* opacity: 0.9; */
 }
 
 .tile {
@@ -79,7 +79,17 @@ main {
 .DE-right { transform: translate(200px, 265px) rotate(0deg); }
 
 
-
+@keyframes spin-cube {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  50% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+  100% {
+    transform: rotateX(0) rotateY(0);
+  }
+}
 @keyframes SpinningSlice-left-z {
   from {
     transform: rotateZ(0deg);

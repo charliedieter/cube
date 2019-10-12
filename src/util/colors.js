@@ -1,4 +1,4 @@
-const COLORS = {
+export default {
   f: "#0000ff", // blue
   b: "#00cc00", // green 
   u: "white",
@@ -6,5 +6,3 @@ const COLORS = {
   l: "#ff9900", // orange
   r: "#ffff00" // yellow
 };
-
-export default COLORS;

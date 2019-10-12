@@ -19,17 +19,12 @@ export const createTiles = () => {
   return tiles;
 };
 
-export const setChanges = (cube, movement) => {
-  const move = MOVEMENTS[movement];
-  const tiles = Object.values(cube);
-  const newTiles = {};
+export const setChanges = (cube, direction) => {
+  const move = MOVEMENTS[direction];
 
-  tiles.forEach(tile => {
-    if (move[tile["position"]]) {
-      tile["position"] = move[tile["position"]];
-    }
-    newTiles[[tile["position"]]] = tile;
-  });
-
-  return newTiles;
+  return Object.values(cube).reduce((newTiles, tile) => {
+    tile.position = move[tile.position] ? move[tile.position] : tile.position
+    newTiles[[tile.position]] = tile;
+    return newTiles
+  }, {});
 };

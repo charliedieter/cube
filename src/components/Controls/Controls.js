@@ -5,9 +5,13 @@ import { shuffle } from "../../redux/actions";
 
 function Controls({ ui: { shuffling }, dispatch }) {
   return (
-    <div style={{ opacity: shuffling ? 0 : 1, transition: 'opacity 100ms ease-in-out' }}>
+    <div style={{ opacity: shuffling ? 0 : 1, transition: 'opacity 200ms ease-in-out' }}>
       <div className="control" onClick={() => dispatch(shuffle())}>
         shuffle
+      </div>
+
+      <div className="control" onClick={() => dispatch(shuffle())}>
+        next
       </div>
     </div>
   );

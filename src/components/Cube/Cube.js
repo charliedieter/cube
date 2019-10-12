@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Tile from "../Tile";
 import renderMove from "../Slice";
+import { infiniteShuffle } from '../../redux/actions'
 
 
 class Cube extends Component {
@@ -9,6 +10,14 @@ class Cube extends Component {
     xAngle: -30,
     yAngle: -35
   };
+
+  componentDidMount() {
+    if (this.props.spin) {
+      this.props.dispatch(infiniteShuffle())
+    } else {
+
+    }
+  }
 
   rotate = e => {
     e.preventDefault();
@@ -40,9 +49,9 @@ class Cube extends Component {
 
   render() {
     const { xAngle, yAngle } = this.state;
-    const { cube, queue } = this.props;
+    const { cube, queue, spin } = this.props;
 
-    const tiles = cube.map(({ position, color }) => {
+    const tiles = Object.values(cube).map(({ position, color }) => {
       return (
         <Tile
           key={`${position}`}
@@ -59,6 +68,7 @@ class Cube extends Component {
           style={{
             transform: `rotateX(${xAngle}deg) rotateY(${yAngle}deg)`
           }}
+          className={spin ? 'spin' : null}
         >
           {queue.length ? renderMove(cube, tiles, queue) : tiles}
         </div>
@@ -67,11 +77,10 @@ class Cube extends Component {
   }
 }
 
-const msp = ({ entities, ui }) => ({
-  cube: Object.values(entities.cube),
-  cubeObj: entities.cube,
-  queue: entities.queue,
-  shuffling: ui.shuffling,
+const msp = ({ entities: { cube, queue }, ui: { shuffling } }) => ({
+  cube,
+  queue,
+  shuffling
 });
 
 
