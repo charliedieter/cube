@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Tile from "./Tile";
-import Arrows from "./controls/Arrows";
-import renderMove from "./Slice";
+import Tile from "../Tile";
+import renderMove from "../Slice";
 
-import { whiteCross } from "../redux/actions";
 
 class Cube extends Component {
   state = {
@@ -42,18 +40,20 @@ class Cube extends Component {
 
   render() {
     const { xAngle, yAngle } = this.state;
-    const { cube, queue, shuffling } = this.props;
+    const { cube, queue } = this.props;
 
-    const tiles = cube.map(tile => (
-      <Tile
-        key={`${tile["position"]}`}
-        tile={tile["position"]}
-        backgroundColor={tile["color"]}
-      />
-    ));
+    const tiles = cube.map(({ position, color }) => {
+      return (
+        <Tile
+          key={`${position}`}
+          tile={position}
+          backgroundColor={color}
+        />
+      )
+    });
 
     return (
-      <div id="cube-container" onKeyDown={""} tabIndex="0">
+      <div id="cube-container">
         <div
           id="cube"
           style={{
@@ -72,11 +72,7 @@ const msp = ({ entities, ui }) => ({
   cubeObj: entities.cube,
   queue: entities.queue,
   shuffling: ui.shuffling,
-  whiteCrossAnimationActive: ui.whiteCrossAnimationActive
 });
 
-const mdp = d => ({
-  wC: cube => d(whiteCross(cube))
-});
 
-export default connect(msp, mdp)(Cube);
+export default connect(msp)(Cube);

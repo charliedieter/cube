@@ -1,10 +1,10 @@
 const COLORS = {
-  f: "blue",
-  b: "green",
+  f: "#0000ff", // blue
+  b: "#00cc00", // green 
   u: "white",
-  d: "red",
-  l: "orange",
-  r: "yellow"
+  d: "#ff0000", // red
+  l: "#ff9900", // orange
+  r: "#ffff00" // yellow
 };
 
 export default COLORS;

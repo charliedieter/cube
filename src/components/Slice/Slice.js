@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { makeChanges } from "../redux/actions";
-import MOVEMENTS from "../util/movements";
+import { setChanges } from "../../util/cubeUtils";
 
-const Slice = ({ children, axis, movement, cube, makeChanges, shuffling }) => {
+import MOVEMENTS from "../../util/movements";
+
+function Slice({ children, axis, movement, cube, dispatch, shuffling }) {
   let direction = movement.split("-")[1];
 
   if (axis === "y" || axis === "z") {
@@ -19,7 +20,10 @@ const Slice = ({ children, axis, movement, cube, makeChanges, shuffling }) => {
         transformOrigin: "203px 203px",
         animation: `SpinningSlice-${direction}-${axis} ${duration}`
       }}
-      onAnimationEnd={() => makeChanges(cube, movement)}
+      onAnimationEnd={() => dispatch({
+        type: 'SET_CHANGES',
+        newCube: setChanges(cube, movement)
+      })}
     >
       {children}
     </div>
@@ -31,11 +35,8 @@ const msp = ({ entities, ui }) => ({
   shuffling: ui.shuffling
 });
 
-const mdp = dispatch => ({
-  makeChanges: (cube, movement) => dispatch(makeChanges(cube, movement))
-});
 
-const ConnectedSlice = connect(msp, mdp)(Slice);
+const ConnectedSlice = connect(msp)(Slice);
 
 const renderMove = (cube, allTiles, queue) => {
   const movement = queue.pop();

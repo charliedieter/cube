@@ -1,4 +1,3 @@
-// TODO: probably a better way to do this (css classes) 🤷‍
 import COLORS from "./colors";
 import MOVEMENTS from "./movements";
 
