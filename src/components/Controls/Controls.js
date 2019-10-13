@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { shuffle, findWhitey } from "../../redux/actions";
+import { shuffle, findWhitey, makeWhiteCross } from "../../redux/actions";
 
 function Controls({ ui: { shuffling }, dispatch }) {
   return (
@@ -13,6 +13,9 @@ function Controls({ ui: { shuffling }, dispatch }) {
           </div>
           <div className="control" onClick={() => dispatch(findWhitey())}>
             find whitey
+          </div>
+          <div className="control" onClick={() => dispatch(makeWhiteCross())}>
+            make white cross
           </div>
         </>
       )}

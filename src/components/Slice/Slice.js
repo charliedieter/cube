@@ -36,7 +36,7 @@ const ConnectedSlice = connect(msp)(Slice);
 function getAxis(movement) {
   if (movement === "down-right") {
     return 'x'
-  } else if (movement === "sideways-left") {
+  } else if (movement === "sideways-left" || movement === 'bottomtwo-left') {
     return 'y'
   }
   return movement[1] === "E" ? "y" : movement[1] === "S" ? "z" : "x";
@@ -48,6 +48,7 @@ const renderMove = (cube, allTiles, queue) => {
   const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key));
   const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key));
   const axis = getAxis(movement)
+  console.log(MOVEMENTS[movement].moves)
   const props = { cube, allTiles, axis, movement };
 
   return [

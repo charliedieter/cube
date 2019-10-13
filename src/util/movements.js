@@ -52,7 +52,7 @@ export const TWISTS = {
       lcc: "lcc"
     }
   },
-  "RM-right": {
+  "RM-right": { // R'
     type: "twist",
     moves: {
       utr: "ftr",
@@ -78,7 +78,7 @@ export const TWISTS = {
       rbr: "rtr"
     }
   },
-  "RM-left": {
+  "RM-left": { // R
     type: "twist",
     moves: {
       utr: "btr",
@@ -224,7 +224,7 @@ export const TWISTS = {
       lcr: "bcl"
     }
   },
-  "DE-left": {
+  "DE-left": { // D'
     type: "twist",
     moves: {
       fbl: "lbl",
@@ -250,7 +250,7 @@ export const TWISTS = {
       dbr: "dtr"
     }
   },
-  "DE-right": {
+  "DE-right": { // D
     type: "twist",
     moves: {
       fbl: "rbl",
@@ -276,7 +276,7 @@ export const TWISTS = {
       dcc: "dcc"
     }
   },
-  "FS-left": {
+  "FS-left": { // F'
     type: "twist",
     moves: {
       ubl: "lbr",
@@ -302,7 +302,7 @@ export const TWISTS = {
       fbr: "ftr"
     }
   },
-  "FS-right": {
+  "FS-right": { // F 
     type: "twist",
     moves: {
       ubl: "rtl",
@@ -428,6 +428,13 @@ export const ROTATIONS = {
     moves: ["CE", "UE", "DE"].map(prefix =>
       TWISTS[`${prefix}-left`].moves
     ).reduce((acc, obj) => ({ ...acc, ...obj }), {})
+  },
+  'bottomtwo-left': {
+    type: 'rotation',
+    moves: {
+      ...TWISTS['DE-left'].moves,
+      ...TWISTS['CE-left'].moves
+    }
   }
 }
 

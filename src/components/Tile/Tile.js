@@ -10,7 +10,7 @@ function Tile({ backgroundColor, tile }) {
         transform: POSITIONS[tile],
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
       }}
     >{tile}</div>
   );
