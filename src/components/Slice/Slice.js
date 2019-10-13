@@ -33,13 +33,21 @@ const msp = ({ entities: { cube }, ui: { shuffling } }) => ({ cube, shuffling })
 
 const ConnectedSlice = connect(msp)(Slice);
 
+function getAxis(movement) {
+  if (movement === "down-right") {
+    return 'x'
+  } else if (movement === "sideways-left") {
+    return 'y'
+  }
+  return movement[1] === "E" ? "y" : movement[1] === "S" ? "z" : "x";
+}
+
 const renderMove = (cube, allTiles, queue) => {
   const movement = queue[queue.length - 1];
   const toSlice = Object.keys(MOVEMENTS[movement].moves);
   const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key));
   const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key));
-  const axis = movement[1] === "E" ? "y" : movement[1] === "S" ? "z" : "x";
-
+  const axis = getAxis(movement)
   const props = { cube, allTiles, axis, movement };
 
   return [

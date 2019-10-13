@@ -417,9 +417,15 @@ export const TWISTS = {
 };
 
 export const ROTATIONS = {
-  down: {
+  'down-right': {
     type: "rotation",
     moves: ["LM", "RM", "CM"].map(prefix =>
+      TWISTS[`${prefix}-right`].moves
+    ).reduce((acc, obj) => ({ ...acc, ...obj }), {})
+  },
+  'sideways-left': {
+    type: "rotation",
+    moves: ["CE", "UE", "DE"].map(prefix =>
       TWISTS[`${prefix}-left`].moves
     ).reduce((acc, obj) => ({ ...acc, ...obj }), {})
   }
