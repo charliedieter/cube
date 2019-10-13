@@ -18,6 +18,8 @@ const queue = (oldState = [], action) => {
       const newState = oldState.slice();
       newState.pop();
       return newState;
+    case 'END_SHUFFLE':
+      return [];
     default:
       return oldState;
   }

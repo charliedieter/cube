@@ -20,7 +20,7 @@ export const createTiles = () => {
 };
 
 export const setChanges = (cube, direction) => {
-  const move = MOVEMENTS[direction];
+  const move = MOVEMENTS[direction].moves;
 
   return Object.values(cube).reduce((newTiles, tile) => {
     tile.position = move[tile.position] ? move[tile.position] : tile.position

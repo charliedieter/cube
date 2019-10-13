@@ -7,9 +7,12 @@ function Tile({ backgroundColor, tile }) {
       className={`tile ${tile}`}
       style={{
         backgroundColor,
-        transform: POSITIONS[tile]
+        transform: POSITIONS[tile],
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
       }}
-    />
+    >{tile}</div>
   );
 
 }

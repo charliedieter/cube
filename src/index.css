@@ -1,21 +1,26 @@
+html {
+  min-height: 100%;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   font-family: "Overpass Mono";
-}
 
+}
 main {
   text-align: center;
   animation: fade-in 300ms ease-in forwards;
 }
-
 .home .control {
   text-decoration: none;
   animation: fade-in 500ms ease-in forwards;
   animation-delay: .5s;
 }
 
+.home .tile {
+  opacity: .2;
+}
 .control {
   cursor: pointer;
   background: blue;
@@ -28,11 +33,9 @@ main {
   transition: box-shadow 200ms ease-in-out;
   margin: auto .5rem;
 }
-
 .control:hover {
   box-shadow:  1px 1px 10px -2px blue;
 }
-
 /* https://paulrhayes.com/animated-css3-cube-interface-using-3d-transforms/ */
 #cube-container {
   perspective: 800px;
@@ -40,7 +43,6 @@ main {
   margin: 125px auto;
   outline: none;
 }
-
 #cube {
   position: relative;
   margin: auto;
@@ -49,12 +51,10 @@ main {
   transition: transform 0.3s linear;
   transform-style: preserve-3d;
 }
-
 #cube.spin {
   animation: spin-cube 6s ease-in-out infinite;
   /* opacity: 0.9; */
 }
-
 .tile {
   position: absolute;
   margin: 1px;
@@ -64,7 +64,6 @@ main {
   width: 105px;
   height: 105px;
 }
-
 .LM-left { transform: scaleX(-1) translate(0, -60px) rotate(-110deg); }
 .CM-left { transform: scaleX(-1) translate(-80px, -45px) rotate(-110deg); }
 .RM-left { transform: scaleX(-1) translate(-160px, -20px) rotate(-110deg); }
@@ -77,8 +76,6 @@ main {
 .CE-left { transform: scaleX(-1) translate(260px, 180px) rotate(0deg); }
 .DE-left { transform: scaleX(-1) translate(250px, 265px) rotate(0deg); }
 .DE-right { transform: translate(200px, 265px) rotate(0deg); }
-
-
 @keyframes spin-cube {
   0% {
     transform: rotateX(0) rotateY(0);

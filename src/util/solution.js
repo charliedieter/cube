@@ -15,8 +15,10 @@
 
 // 5. Aligning the third layer center pieces
 // R U R' U R U U R'
+
 // 6. Aligning the third layer corner pieces
 // U R U' L' U R' U' L
+
 // 7. Finishing the cube
 // R' D R D'
 

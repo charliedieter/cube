@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Tile from "../Tile";
 import renderMove from "../Slice";
-import { infiniteShuffle } from '../../redux/actions'
+import { infiniteShuffle, endShuffle } from '../../redux/actions'
 
 
 class Cube extends Component {
@@ -15,7 +15,7 @@ class Cube extends Component {
     if (this.props.spin) {
       this.props.dispatch(infiniteShuffle())
     } else {
-
+      this.props.dispatch(endShuffle())
     }
   }
 

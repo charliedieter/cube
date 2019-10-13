@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { setChanges } from "../../util/cubeUtils";
-
 import MOVEMENTS from "../../util/movements";
 
 function Slice({ children, axis, movement, cube, dispatch, shuffling }) {
@@ -30,17 +29,13 @@ function Slice({ children, axis, movement, cube, dispatch, shuffling }) {
   );
 };
 
-const msp = ({ entities: { cube }, ui: { shuffling } }) => ({
-  cube,
-  shuffling
-});
-
+const msp = ({ entities: { cube }, ui: { shuffling } }) => ({ cube, shuffling });
 
 const ConnectedSlice = connect(msp)(Slice);
 
 const renderMove = (cube, allTiles, queue) => {
-  const movement = queue.pop();
-  const toSlice = Object.keys(MOVEMENTS[movement]);
+  const movement = queue[queue.length - 1];
+  const toSlice = Object.keys(MOVEMENTS[movement].moves);
   const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key));
   const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key));
   const axis = movement[1] === "E" ? "y" : movement[1] === "S" ? "z" : "x";
@@ -52,4 +47,5 @@ const renderMove = (cube, allTiles, queue) => {
     ...unslicedTiles
   ];
 };
+
 export default renderMove;
