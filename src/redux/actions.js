@@ -14,9 +14,12 @@ function makeRandos(dispatch) {
 }
 
 function rotate(dispatch) {
+  const move = window.LAST_MOVE === "down-right" ? "sideways-left" : "down-right";
+  window.LAST_MOVE = move;
+
   dispatch({
     type: 'ENQUEUE',
-    moves: ['down-right']
+    moves: [move]
   })
 
   setTimeout(() => dispatch(findWhitey()), 220)
