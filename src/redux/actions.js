@@ -54,9 +54,35 @@ export const findWhitey = () => (dispatch, getState) => {
   rotateForWhitey(dispatch)
 }
 
-export const makeWhiteCross = (setup = false, lastMove = 0) => (dispatch, getState) => {
-  const { ui: { shuffling }, entities: { cube: { utc, ucl, ucc, ucr, ubc, fcl, ftc, fcr, fbc } } } = getState();
+function checkWhiteCrossEdges(dispatch, { ftc, fcc }) {
+  if (!window.WC_EDGE_CHECK_COUNT) {
+    window.WC_EDGE_CHECK_COUNT = 0;
+  }
+  if (ftc.color !== fcc.color) {
+    dispatch({
+      type: 'ENQUEUE',
+      moves: ['bottomtwo-left']
+    })
+    return setTimeout(() => dispatch(makeWhiteCross()), 1000)
+  }
 
+  if (window.WC_EDGE_CHECK_COUNT < 3) {
+    window.WC_EDGE_CHECK_COUNT++
+
+    dispatch({
+      type: 'ENQUEUE',
+      moves: ['sideways-left']
+    })
+    return setTimeout(() => dispatch(makeWhiteCross()), 1000)
+  }
+  return dispatch({
+    type: 'END_SHUFFLE'
+  })
+}
+
+export const makeWhiteCross = (setup = false, lastMove = 0) => (dispatch, getState) => {
+  const { ui: { shuffling }, entities: { cube } } = getState();
+  const { utc, ucl, ucc, ucr, ubc, fcl, ftc, fcr, fbc } = cube;
   if ( // check for completion
     utc.color === "white" &&
     ucl.color === "white" &&
@@ -64,7 +90,7 @@ export const makeWhiteCross = (setup = false, lastMove = 0) => (dispatch, getSta
     ucr.color === "white" &&
     ubc.color === "white"
   ) {
-    return dispatch({ type: 'END_SHUFFLE' })
+    return checkWhiteCrossEdges(dispatch, cube)
   }
 
   if (!shuffling) dispatch({ type: 'START_SHUFFLE' });
@@ -102,5 +128,4 @@ export const makeWhiteCross = (setup = false, lastMove = 0) => (dispatch, getSta
 
   setTimeout(() => dispatch(makeWhiteCross(true, move)), 220)
 }
-
 
