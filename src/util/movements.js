@@ -1,6 +1,7 @@
 // Once again, eternally grateful to https://github.com/diervo/html5rubik/blob/master/tutorial/step3/rubik-simple.js for doing all of the heavy lifting here.
 export const TWISTS = {
   "LM-left": {
+    // L'
     type: "twist",
     moves: {
       utl: "btl",
@@ -27,6 +28,7 @@ export const TWISTS = {
     }
   },
   "LM-right": {
+    // L
     type: "twist",
     moves: {
       utl: "ftl",
@@ -52,7 +54,8 @@ export const TWISTS = {
       lcc: "lcc"
     }
   },
-  "RM-right": { // R'
+  "RM-right": {
+    // R'
     type: "twist",
     moves: {
       utr: "ftr",
@@ -78,7 +81,8 @@ export const TWISTS = {
       rbr: "rtr"
     }
   },
-  "RM-left": { // R
+  "RM-left": {
+    // R
     type: "twist",
     moves: {
       utr: "btr",
@@ -104,6 +108,224 @@ export const TWISTS = {
       rcc: "rcc"
     }
   },
+
+  "UE-left": {
+    // U
+    type: "twist",
+    moves: {
+      rtl: "ftl",
+      rtc: "ftc",
+      rtr: "ftr",
+      ftl: "ltl",
+      ftc: "ltc",
+      ftr: "ltr",
+      ltl: "bbr",
+      ltc: "bbc",
+      ltr: "bbl",
+      bbr: "rtl",
+      bbc: "rtc",
+      bbl: "rtr",
+      utl: "utr",
+      ucl: "utc",
+      ubl: "utl",
+      utc: "ucr",
+      ubc: "ucl",
+      utr: "ubr",
+      ucr: "ubc",
+      ubr: "ubl",
+      ucc: "ucc"
+    }
+  },
+  "UE-right": {
+    // U'
+    type: "twist",
+    moves: {
+      ltl: "ftl",
+      ltc: "ftc",
+      ltr: "ftr",
+      ftl: "rtl",
+      ftc: "rtc",
+      ftr: "rtr",
+      rtl: "bbr",
+      rtc: "bbc",
+      rtr: "bbl",
+      bbr: "ltl",
+      bbc: "ltc",
+      bbl: "ltr",
+      utl: "ubl",
+      ucl: "ubc",
+      ubl: "ubr",
+      utc: "ucl",
+      ucc: "ucc",
+      ubc: "ucr",
+      utr: "utl",
+      ucr: "utc",
+      ubr: "utr"
+    }
+  },
+  "DE-left": {
+    // D'
+    type: "twist",
+    moves: {
+      fbl: "lbl",
+      fbc: "lbc",
+      fbr: "lbr",
+      lbl: "btr",
+      lbc: "btc",
+      lbr: "btl",
+      btr: "rbl",
+      btc: "rbc",
+      btl: "rbr",
+      rbl: "fbl",
+      rbc: "fbc",
+      rbr: "fbr",
+      dtl: "dbl",
+      dcl: "dbc",
+      dbl: "dbr",
+      dtc: "dcl",
+      dcc: "dcc",
+      dbc: "dcr",
+      dtr: "dtl",
+      dcr: "dtc",
+      dbr: "dtr"
+    }
+  },
+  "DE-right": {
+    // D
+    type: "twist",
+    moves: {
+      fbl: "rbl",
+      fbc: "rbc",
+      fbr: "rbr",
+      rbl: "btr",
+      rbc: "btc",
+      rbr: "btl",
+      btr: "lbl",
+      btc: "lbc",
+      btl: "lbr",
+      lbl: "fbl",
+      lbc: "fbc",
+      lbr: "fbr",
+      dtl: "dtr",
+      dcl: "dtc",
+      dbl: "dtl",
+      dtc: "dcr",
+      dbc: "dcl",
+      dtr: "dbr",
+      dcr: "dbc",
+      dbr: "dbl",
+      dcc: "dcc"
+    }
+  },
+  "FS-left": {
+    // F'
+    type: "twist",
+    moves: {
+      ubl: "lbr",
+      ubc: "lcr",
+      ubr: "ltr",
+      lbr: "dtr",
+      lcr: "dtc",
+      ltr: "dtl",
+      dtl: "rbl",
+      dtc: "rcl",
+      dtr: "rtl",
+      rbl: "ubr",
+      rcl: "ubc",
+      rtl: "ubl",
+      ftl: "fbl",
+      fcl: "fbc",
+      fbl: "fbr",
+      ftc: "fcl",
+      fcc: "fcc",
+      fbc: "fcr",
+      ftr: "ftl",
+      fcr: "ftc",
+      fbr: "ftr"
+    }
+  },
+  "FS-right": {
+    // F
+    type: "twist",
+    moves: {
+      ubl: "rtl",
+      ubc: "rcl",
+      ubr: "rbl",
+      lbr: "ubl",
+      lcr: "ubc",
+      ltr: "ubr",
+      dtl: "ltr",
+      dtc: "lcr",
+      dtr: "lbr",
+      rbl: "dtl",
+      rcl: "dtc",
+      rtl: "dtr",
+      ftl: "ftr",
+      fcl: "ftc",
+      fbl: "ftl",
+      ftc: "fcr",
+      fbc: "fcl",
+      ftr: "fbr",
+      fcr: "fbc",
+      fbr: "fbl",
+      fcc: "fcc"
+    }
+  },
+  "BS-right": {
+    // B'
+    type: "twist",
+    moves: {
+      utl: "rtr",
+      utc: "rcr",
+      utr: "rbr",
+      rtr: "dbr",
+      rcr: "dbc",
+      rbr: "dbl",
+      dbr: "lbl",
+      dbc: "lcl",
+      dbl: "ltl",
+      lbl: "utl",
+      lcl: "utc",
+      ltl: "utr",
+      btl: "bbl",
+      bcl: "bbc",
+      bbl: "bbr",
+      btc: "bcl",
+      bcc: "bcc",
+      bbc: "bcr",
+      btr: "btl",
+      bcr: "btc",
+      bbr: "btr"
+    }
+  },
+  "BS-left": {
+    // B
+    type: "twist",
+    moves: {
+      rtr: "utl",
+      rcr: "utc",
+      rbr: "utr",
+      dbr: "rtr",
+      dbc: "rcr",
+      dbl: "rbr",
+      lbl: "dbr",
+      lcl: "dbc",
+      ltl: "dbl",
+      utl: "lbl",
+      utc: "lcl",
+      utr: "ltl",
+      btl: "btr",
+      bcl: "btc",
+      bbl: "btl",
+      btc: "bcr",
+      bbc: "bcl",
+      btr: "bbr",
+      bcr: "bbc",
+      bbr: "bbl",
+      bcc: "bcc"
+    }
+  },
+
   "CM-right": {
     type: "twist",
     moves: {
@@ -136,58 +358,6 @@ export const TWISTS = {
       btc: "dtc",
       bcc: "dcc",
       bbc: "dbc"
-    }
-  },
-  "UE-left": {
-    type: "twist",
-    moves: {
-      rtl: "ftl",
-      rtc: "ftc",
-      rtr: "ftr",
-      ftl: "ltl",
-      ftc: "ltc",
-      ftr: "ltr",
-      ltl: "bbr",
-      ltc: "bbc",
-      ltr: "bbl",
-      bbr: "rtl",
-      bbc: "rtc",
-      bbl: "rtr",
-      utl: "utr",
-      ucl: "utc",
-      ubl: "utl",
-      utc: "ucr",
-      ubc: "ucl",
-      utr: "ubr",
-      ucr: "ubc",
-      ubr: "ubl",
-      ucc: "ucc"
-    }
-  },
-  "UE-right": {
-    type: "twist",
-    moves: {
-      ltl: "ftl",
-      ltc: "ftc",
-      ltr: "ftr",
-      ftl: "rtl",
-      ftc: "rtc",
-      ftr: "rtr",
-      rtl: "bbr",
-      rtc: "bbc",
-      rtr: "bbl",
-      bbr: "ltl",
-      bbc: "ltc",
-      bbl: "ltr",
-      utl: "ubl",
-      ucl: "ubc",
-      ubl: "ubr",
-      utc: "ucl",
-      ucc: "ucc",
-      ubc: "ucr",
-      utr: "utl",
-      ucr: "utc",
-      ubr: "utr"
     }
   },
   "CE-right": {
@@ -224,110 +394,6 @@ export const TWISTS = {
       lcr: "bcl"
     }
   },
-  "DE-left": { // D'
-    type: "twist",
-    moves: {
-      fbl: "lbl",
-      fbc: "lbc",
-      fbr: "lbr",
-      lbl: "btr",
-      lbc: "btc",
-      lbr: "btl",
-      btr: "rbl",
-      btc: "rbc",
-      btl: "rbr",
-      rbl: "fbl",
-      rbc: "fbc",
-      rbr: "fbr",
-      dtl: "dbl",
-      dcl: "dbc",
-      dbl: "dbr",
-      dtc: "dcl",
-      dcc: "dcc",
-      dbc: "dcr",
-      dtr: "dtl",
-      dcr: "dtc",
-      dbr: "dtr"
-    }
-  },
-  "DE-right": { // D
-    type: "twist",
-    moves: {
-      fbl: "rbl",
-      fbc: "rbc",
-      fbr: "rbr",
-      rbl: "btr",
-      rbc: "btc",
-      rbr: "btl",
-      btr: "lbl",
-      btc: "lbc",
-      btl: "lbr",
-      lbl: "fbl",
-      lbc: "fbc",
-      lbr: "fbr",
-      dtl: "dtr",
-      dcl: "dtc",
-      dbl: "dtl",
-      dtc: "dcr",
-      dbc: "dcl",
-      dtr: "dbr",
-      dcr: "dbc",
-      dbr: "dbl",
-      dcc: "dcc"
-    }
-  },
-  "FS-left": { // F'
-    type: "twist",
-    moves: {
-      ubl: "lbr",
-      ubc: "lcr",
-      ubr: "ltr",
-      lbr: "dtr",
-      lcr: "dtc",
-      ltr: "dtl",
-      dtl: "rbl",
-      dtc: "rcl",
-      dtr: "rtl",
-      rbl: "ubr",
-      rcl: "ubc",
-      rtl: "ubl",
-      ftl: "fbl",
-      fcl: "fbc",
-      fbl: "fbr",
-      ftc: "fcl",
-      fcc: "fcc",
-      fbc: "fcr",
-      ftr: "ftl",
-      fcr: "ftc",
-      fbr: "ftr"
-    }
-  },
-  "FS-right": { // F 
-    type: "twist",
-    moves: {
-      ubl: "rtl",
-      ubc: "rcl",
-      ubr: "rbl",
-      lbr: "ubl",
-      lcr: "ubc",
-      ltr: "ubr",
-      dtl: "ltr",
-      dtc: "lcr",
-      dtr: "lbr",
-      rbl: "dtl",
-      rcl: "dtc",
-      rtl: "dtr",
-      ftl: "ftr",
-      fcl: "ftc",
-      fbl: "ftl",
-      ftc: "fcr",
-      fbc: "fcl",
-      ftr: "fbr",
-      fcr: "fbc",
-      fbr: "fbl",
-      fcc: "fcc"
-    }
-  },
   "CS-left": {
     type: "twist",
     moves: {
@@ -361,84 +427,47 @@ export const TWISTS = {
       ucc: "rcc",
       ucl: "rtc"
     }
+  }
+};
+
+export const CENTER_TWISTS = {};
+
+export const ROTATIONS = {
+  "down-right": {
+    type: "rotation",
+    moves: ["LM", "RM", "CM"]
+      .map(prefix => TWISTS[`${prefix}-right`].moves)
+      .reduce((acc, obj) => ({ ...acc, ...obj }), {})
   },
-  "BS-right": {
-    type: "twist",
-    moves: {
-      utl: "rtr",
-      utc: "rcr",
-      utr: "rbr",
-      rtr: "dbr",
-      rcr: "dbc",
-      rbr: "dbl",
-      dbr: "lbl",
-      dbc: "lcl",
-      dbl: "ltl",
-      lbl: "utl",
-      lcl: "utc",
-      ltl: "utr",
-      btl: "bbl",
-      bcl: "bbc",
-      bbl: "bbr",
-      btc: "bcl",
-      bcc: "bcc",
-      bbc: "bcr",
-      btr: "btl",
-      bcr: "btc",
-      bbr: "btr"
-    }
+  "up-left": {
+    type: "rotation",
+    moves: ["LM", "RM", "CM"]
+      .map(prefix => TWISTS[`${prefix}-left`].moves)
+      .reduce((acc, obj) => ({ ...acc, ...obj }), {})
   },
-  "BS-left": {
-    type: "twist",
+  "sideways-left": {
+    type: "rotation",
+    moves: ["CE", "UE", "DE"]
+      .map(prefix => TWISTS[`${prefix}-left`].moves)
+      .reduce((acc, obj) => ({ ...acc, ...obj }), {})
+  },
+  "sideways-right": {
+    type: "rotation",
+    moves: ["CE", "UE", "DE"]
+      .map(prefix => TWISTS[`${prefix}-right`].moves)
+      .reduce((acc, obj) => ({ ...acc, ...obj }), {})
+  },
+  "bottomtwo-left": {
+    type: "rotation",
     moves: {
-      rtr: "utl",
-      rcr: "utc",
-      rbr: "utr",
-      dbr: "rtr",
-      dbc: "rcr",
-      dbl: "rbr",
-      lbl: "dbr",
-      lcl: "dbc",
-      ltl: "dbl",
-      utl: "lbl",
-      utc: "lcl",
-      utr: "ltl",
-      btl: "btr",
-      bcl: "btc",
-      bbl: "btl",
-      btc: "bcr",
-      bbc: "bcl",
-      btr: "bbr",
-      bcr: "bbc",
-      bbr: "bbl",
-      bcc: "bcc"
+      ...TWISTS["DE-left"].moves,
+      ...TWISTS["CE-left"].moves
     }
   }
 };
 
-export const ROTATIONS = {
-  'down-right': {
-    type: "rotation",
-    moves: ["LM", "RM", "CM"].map(prefix =>
-      TWISTS[`${prefix}-right`].moves
-    ).reduce((acc, obj) => ({ ...acc, ...obj }), {})
-  },
-  'sideways-left': {
-    type: "rotation",
-    moves: ["CE", "UE", "DE"].map(prefix =>
-      TWISTS[`${prefix}-left`].moves
-    ).reduce((acc, obj) => ({ ...acc, ...obj }), {})
-  },
-  'bottomtwo-left': {
-    type: 'rotation',
-    moves: {
-      ...TWISTS['DE-left'].moves,
-      ...TWISTS['CE-left'].moves
-    }
-  }
-}
-
 export default {
   ...TWISTS,
+  ...CENTER_TWISTS,
   ...ROTATIONS
 };
