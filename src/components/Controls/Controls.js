@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react'
+import { connect } from 'react-redux'
 
-import { shuffle, findWhitey, makeWhiteCross } from "../../redux/actions";
+import { shuffle } from '../../redux/actions'
 
 function Controls({ ui: { shuffling }, dispatch }) {
   return (
@@ -11,16 +11,10 @@ function Controls({ ui: { shuffling }, dispatch }) {
           <div className="control" onClick={() => dispatch(shuffle())}>
             shuffle
           </div>
-          <div className="control" onClick={() => dispatch(findWhitey())}>
-            find whitey
-          </div>
-          <div className="control" onClick={() => dispatch(makeWhiteCross())}>
-            make white cross
-          </div>
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default connect(s => s)(Controls);
+export default connect(s => s)(Controls)
