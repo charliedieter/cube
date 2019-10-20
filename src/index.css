@@ -1,3 +1,11 @@
+:root {
+   --blue: #0000ff;
+   --green: #00cc00;
+   --white: white;
+   --red: #ff0000;
+   --orange: #ff9900;
+   --yellow: #ffff00;
+}
 html {
   min-height: 100%;
 }
@@ -11,6 +19,20 @@ body {
 main {
   text-align: center;
   animation: fade-in 300ms ease-in forwards;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+a:visited {
+  color: blue;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
 }
 .home .control {
   text-decoration: none;
