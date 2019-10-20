@@ -1,7 +1,21 @@
 {
-  "main.css": "static/css/main.a9ed94aa.css",
-  "main.css.map": "static/css/main.a9ed94aa.css.map",
-  "main.js": "static/js/main.d2b8af60.js",
-  "main.js.map": "static/js/main.d2b8af60.js.map",
-  "static/media/arrow.svg": "static/media/arrow.65f91adc.svg"
+  "files": {
+    "main.css": "/cube/static/css/main.ffc1db3d.chunk.css",
+    "main.js": "/cube/static/js/main.58f38452.chunk.js",
+    "main.js.map": "/cube/static/js/main.58f38452.chunk.js.map",
+    "runtime-main.js": "/cube/static/js/runtime-main.e6ab25b6.js",
+    "runtime-main.js.map": "/cube/static/js/runtime-main.e6ab25b6.js.map",
+    "static/js/2.26b29c8e.chunk.js": "/cube/static/js/2.26b29c8e.chunk.js",
+    "static/js/2.26b29c8e.chunk.js.map": "/cube/static/js/2.26b29c8e.chunk.js.map",
+    "index.html": "/cube/index.html",
+    "precache-manifest.54454a9ac1af740b010812e0c612b608.js": "/cube/precache-manifest.54454a9ac1af740b010812e0c612b608.js",
+    "service-worker.js": "/cube/service-worker.js",
+    "static/css/main.ffc1db3d.chunk.css.map": "/cube/static/css/main.ffc1db3d.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6ab25b6.js",
+    "static/js/2.26b29c8e.chunk.js",
+    "static/css/main.ffc1db3d.chunk.css",
+    "static/js/main.58f38452.chunk.js"
+  ]
 }
