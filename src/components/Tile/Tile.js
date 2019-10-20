@@ -1,5 +1,5 @@
-import React from "react";
-import POSITIONS from "../../util/positions";
+import React from 'react'
+import POSITIONS from '../../util/positions'
 
 function Tile({ backgroundColor, tile }) {
   return (
@@ -12,9 +12,8 @@ function Tile({ backgroundColor, tile }) {
         justifyContent: 'center',
         alignItems: 'center',
       }}
-    >{tile}</div>
-  );
-
+    />
+  )
 }
 
-export default Tile;
+export default Tile
