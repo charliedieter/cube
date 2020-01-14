@@ -7,7 +7,7 @@ import Moves from '../components/Moves'
 function Tutorial() {
   return (
     <main className="tutorial">
-      <Nav />
+      {/* <Nav /> */}
       <Cube />
       <Moves />
       <Controls />

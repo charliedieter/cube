@@ -20,12 +20,12 @@ function Moves({ queue, dispatch }) {
             return (
               <li
                 key={a}
-                onClick={() =>
-                  dispatch({
-                    type: 'ENQUEUE',
-                    moves: [a],
-                  })
-                }
+                onClick={() => {
+                  // dispatch({
+                  //   type: 'ENQUEUE',
+                  //   moves: [a],
+                  // })
+                }}
                 style={{
                   marginRight: '1rem',
                   textTransform: 'lowercase',
