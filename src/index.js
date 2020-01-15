@@ -19,10 +19,10 @@ render(
           return (
             <Switch location={location}>
               <Route exact path="/" component={Home} />
-              <Route
+              {/* <Route
                 path="/tutorial/:step?"
                 component={({ match: { params } }) => <Tutorial {...params} />}
-              />
+              /> */}
             </Switch>
           )
         }}
