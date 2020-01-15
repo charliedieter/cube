@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 function Moves({ queue, dispatch }) {
-  const currentMove = queue[queue.length - 1]
+  const currentMove = window.__currentMove // a hack, but until I replace redux, it'll do
 
   return (
     <div>
@@ -21,10 +21,10 @@ function Moves({ queue, dispatch }) {
               <li
                 key={a}
                 onClick={() => {
-                  // dispatch({
-                  //   type: 'ENQUEUE',
-                  //   moves: [a],
-                  // })
+                  dispatch({
+                    type: 'ENQUEUE',
+                    moves: [a],
+                  })
                 }}
                 style={{
                   marginRight: '1rem',

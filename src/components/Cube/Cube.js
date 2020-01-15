@@ -20,29 +20,31 @@ class Cube extends Component {
     window.addEventListener('keydown', this.rotate)
   }
 
-  rotate = ({ keyCode, shiftKey, ctrlKey }) => {
-    if (ctrlKey) return //cmd
-    const { dispatch, queue } = this.props
+  rotate = e => {
+    const { keyCode, shiftKey, ctrlKey, metaKey } = e
+    if (ctrlKey || metaKey) return //cmd or ctrl
+
+    e.preventDefault()
+    const { dispatch } = this.props
 
     const twist = direction =>
       dispatch({
         type: 'ENQUEUE',
         moves: [direction],
       })
-
     switch (keyCode) {
-      case 37:
-        twist('sideways-left')
-        break
-      case 38:
-        twist('up-left')
-        break
-      case 39:
-        twist('sideways-right')
-        break
-      case 40:
-        twist('down-right')
-        break
+      //TODO:  case 37:
+      //   twist('sideways-left')
+      //   break
+      // case 38:
+      //   twist('up-left')
+      //   break
+      // case 39:
+      //   twist('sideways-right')
+      //   break
+      // case 40:
+      //   twist('down-right')
+      //   break
       case 66:
         twist(shiftKey ? "B'" : 'B')
         break
@@ -71,9 +73,7 @@ class Cube extends Component {
     const { cube, queue, spin } = this.props
 
     const tiles = Object.values(cube).map(({ position, color }) => {
-      return (
-        <Tile key={`${position}`} tile={position} backgroundColor={color} />
-      )
+      return <Tile key={position} tile={position} backgroundColor={color} />
     })
 
     return (

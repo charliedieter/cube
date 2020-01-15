@@ -350,159 +350,159 @@ export const TWISTS = {
       bcc: 'bcc',
     },
   },
-  // 'CM-right': {
-  //   type: 'twist',
-  //   axis: 'x',
-  //   direction: 'right',
-  //   moves: {
-  //     utc: 'ftc',
-  //     ucc: 'fcc',
-  //     ubc: 'fbc',
-  //     ftc: 'dtc',
-  //     fcc: 'dcc',
-  //     fbc: 'dbc',
-  //     dtc: 'btc',
-  //     dcc: 'bcc',
-  //     dbc: 'bbc',
-  //     btc: 'utc',
-  //     bcc: 'ucc',
-  //     bbc: 'ubc',
-  //   },
-  // },
-  // 'CM-left': {
-  //   type: 'twist',
-  //   axis: 'x',
-  //   direction: 'left',
-  //   moves: {
-  //     utc: 'btc',
-  //     ucc: 'bcc',
-  //     ubc: 'bbc',
-  //     ftc: 'utc',
-  //     fcc: 'ucc',
-  //     fbc: 'ubc',
-  //     dtc: 'ftc',
-  //     dcc: 'fcc',
-  //     dbc: 'fbc',
-  //     btc: 'dtc',
-  //     bcc: 'dcc',
-  //     bbc: 'dbc',
-  //   },
-  // },
-  // 'CE-right': {
-  //   type: 'twist',
-  //   axis: 'y',
-  //   direciton: 'left',
-  //   moves: {
-  //     fcl: 'rcl',
-  //     fcc: 'rcc',
-  //     fcr: 'rcr',
-  //     lcl: 'fcl',
-  //     lcc: 'fcc',
-  //     lcr: 'fcr',
-  //     bcl: 'lcr',
-  //     bcc: 'lcc',
-  //     bcr: 'lcl',
-  //     rcl: 'bcr',
-  //     rcc: 'bcc',
-  //     rcr: 'bcl',
-  //   },
-  // },
-  // 'CE-left': {
-  //   type: 'twist',
-  //   axis: 'y',
-  //   direction: 'right',
-  //   moves: {
-  //     fcl: 'lcl',
-  //     fcc: 'lcc',
-  //     fcr: 'lcr',
-  //     rcl: 'fcl',
-  //     rcc: 'fcc',
-  //     rcr: 'fcr',
-  //     bcl: 'rcr',
-  //     bcc: 'rcc',
-  //     bcr: 'rcl',
-  //     lcl: 'bcr',
-  //     lcc: 'bcc',
-  //     lcr: 'bcl',
-  //   },
-  // },
-  // 'CS-left': {
-  //   type: 'twist',
-  //   axis: 'z',
-  //   direction: 'right',
-  //   moves: {
-  //     ucl: 'lbc',
-  //     ucc: 'lcc',
-  //     ucr: 'ltc',
-  //     ltc: 'dcl',
-  //     lcc: 'dcc',
-  //     lbc: 'dcr',
-  //     dcl: 'rbc',
-  //     dcc: 'rcc',
-  //     dcr: 'rtc',
-  //     rbc: 'ucr',
-  //     rcc: 'ucc',
-  //     rtc: 'ucl',
-  //   },
-  // },
-  // 'CS-right': {
-  //   type: 'twist',
-  //   axis: 'z',
-  //   direction: 'left',
-  //   moves: {
-  //     lbc: 'ucl',
-  //     lcc: 'ucc',
-  //     ltc: 'ucr',
-  //     dcl: 'ltc',
-  //     dcc: 'lcc',
-  //     dcr: 'lbc',
-  //     rbc: 'dcl',
-  //     rcc: 'dcc',
-  //     rtc: 'dcr',
-  //     ucr: 'rbc',
-  //     ucc: 'rcc',
-  //     ucl: 'rtc',
-  //   },
-  // },
+  'CM-right': {
+    type: 'twist',
+    axis: 'x',
+    direction: 'right',
+    moves: {
+      utc: 'ftc',
+      ucc: 'fcc',
+      ubc: 'fbc',
+      ftc: 'dtc',
+      fcc: 'dcc',
+      fbc: 'dbc',
+      dtc: 'btc',
+      dcc: 'bcc',
+      dbc: 'bbc',
+      btc: 'utc',
+      bcc: 'ucc',
+      bbc: 'ubc',
+    },
+  },
+  'CM-left': {
+    type: 'twist',
+    axis: 'x',
+    direction: 'left',
+    moves: {
+      utc: 'btc',
+      ucc: 'bcc',
+      ubc: 'bbc',
+      ftc: 'utc',
+      fcc: 'ucc',
+      fbc: 'ubc',
+      dtc: 'ftc',
+      dcc: 'fcc',
+      dbc: 'fbc',
+      btc: 'dtc',
+      bcc: 'dcc',
+      bbc: 'dbc',
+    },
+  },
+  'CE-right': {
+    type: 'twist',
+    axis: 'y',
+    direciton: 'left',
+    moves: {
+      fcl: 'rcl',
+      fcc: 'rcc',
+      fcr: 'rcr',
+      lcl: 'fcl',
+      lcc: 'fcc',
+      lcr: 'fcr',
+      bcl: 'lcr',
+      bcc: 'lcc',
+      bcr: 'lcl',
+      rcl: 'bcr',
+      rcc: 'bcc',
+      rcr: 'bcl',
+    },
+  },
+  'CE-left': {
+    type: 'twist',
+    axis: 'y',
+    direction: 'right',
+    moves: {
+      fcl: 'lcl',
+      fcc: 'lcc',
+      fcr: 'lcr',
+      rcl: 'fcl',
+      rcc: 'fcc',
+      rcr: 'fcr',
+      bcl: 'rcr',
+      bcc: 'rcc',
+      bcr: 'rcl',
+      lcl: 'bcr',
+      lcc: 'bcc',
+      lcr: 'bcl',
+    },
+  },
+  'CS-left': {
+    type: 'twist',
+    axis: 'z',
+    direction: 'right',
+    moves: {
+      ucl: 'lbc',
+      ucc: 'lcc',
+      ucr: 'ltc',
+      ltc: 'dcl',
+      lcc: 'dcc',
+      lbc: 'dcr',
+      dcl: 'rbc',
+      dcc: 'rcc',
+      dcr: 'rtc',
+      rbc: 'ucr',
+      rcc: 'ucc',
+      rtc: 'ucl',
+    },
+  },
+  'CS-right': {
+    type: 'twist',
+    axis: 'z',
+    direction: 'left',
+    moves: {
+      lbc: 'ucl',
+      lcc: 'ucc',
+      ltc: 'ucr',
+      dcl: 'ltc',
+      dcc: 'lcc',
+      dcr: 'lbc',
+      rbc: 'dcl',
+      rcc: 'dcc',
+      rtc: 'dcr',
+      ucr: 'rbc',
+      ucc: 'rcc',
+      ucl: 'rtc',
+    },
+  },
 }
 
 export const CENTER_TWISTS = {}
 
 export const ROTATIONS = {
-  // 'down-right': {
-  //   type: 'rotation',
-  //   moves: ['L', "R'", 'CM-right']
-  //     .map(move => move.moves)
-  //     .reduce((acc, obj) => ({ ...acc, ...obj }), {}),
-  // },
-  // 'up-left': {
-  //   type: 'rotation',
-  //   moves: ['LM', 'RM', 'CM']
-  //     .map(prefix => TWISTS[`${prefix}-left`].moves)
-  //     .reduce((acc, obj) => ({ ...acc, ...obj }), {}),
-  // },
-  // 'sideways-left': {
-  //   type: 'rotation',
-  // axis: 'y',
-  //   moves: ['CE', 'UE', 'DE']
-  //     .map(prefix => TWISTS[`${prefix}-left`].moves)
-  //     .reduce((acc, obj) => ({ ...acc, ...obj }), {}),
-  // },
-  // 'sideways-right': {
-  //   type: 'rotation',
-  // axis: 'y',
-  //   moves: ['CE-right', "U'", 'D']
-  //     .map(prefix => TWISTS[`${prefix}-right`].moves)
-  //     .reduce((acc, obj) => ({ ...acc, ...obj }), {}),
-  // },
-  // 'bottomtwo-left': {
-  //   type: 'rotation',
-  // axis: 'y',
-  //   moves: {
-  //     ...TWISTS['DE-left'].moves,
-  //     ...TWISTS['CE-left'].moves,
-  //   },
-  // },
+  'down-right': {
+    type: 'rotation',
+    moves: ['L', "R'", 'CM-right']
+      .map(move => TWISTS[move].moves)
+      .reduce((acc, obj) => ({ ...acc, ...obj }), {}),
+  },
+  'up-left': {
+    type: 'rotation',
+    moves: ["L'", 'R', 'CM-left']
+      .map(move => TWISTS[move].moves)
+      .reduce((acc, obj) => ({ ...acc, ...obj }), {}),
+  },
+  'sideways-left': {
+    type: 'rotation',
+    axis: 'y',
+    moves: ['CE-left', 'U', "D'"]
+      .map(move => TWISTS[move].moves)
+      .reduce((acc, obj) => ({ ...acc, ...obj }), {}),
+  },
+  'sideways-right': {
+    type: 'rotation',
+    axis: 'y',
+    moves: ['CE-right', "U'", 'D']
+      .map(move => TWISTS[move].moves)
+      .reduce((acc, obj) => ({ ...acc, ...obj }), {}),
+  },
+  'bottomtwo-left': {
+    type: 'rotation',
+    axis: 'y',
+    moves: {
+      ...TWISTS["D'"].moves,
+      ...TWISTS['CE-left'].moves,
+    },
+  },
 }
 
 export default {

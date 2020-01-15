@@ -22,12 +22,14 @@ function Slice({
         transformOrigin: '203px 203px',
         animation: `SpinningSlice-${direction}-${axis} ${duration}`,
       }}
-      onAnimationEnd={() =>
-        dispatch({
+      onAnimationEnd={() => {
+        window.__currentMove = null
+
+        return dispatch({
           type: 'SET_CHANGES',
           newCube: setChanges(cube, movement),
         })
-      }
+      }}
     >
       {children}
     </div>
@@ -42,14 +44,15 @@ const msp = ({ entities: { cube }, ui: { shuffling } }) => ({
 const ConnectedSlice = connect(msp)(Slice)
 
 const renderMove = (cube, allTiles, queue) => {
-  const movement = queue[queue.length - 1] //FIXME: race condition here, for some reason popping off works, but then we don't have a record of the current move
+  const movement = queue.pop() // FIXME: obviously, thunks were a terrible choice, but I was inexperienced and ambitious
+  window.__currentMove = movement
+
   const toSlice = Object.keys(MOVEMENTS[movement].moves)
   const slicedTiles = allTiles.filter(({ key }) => toSlice.includes(key))
   const unslicedTiles = allTiles.filter(({ key }) => !toSlice.includes(key))
   const { axis, direction } = MOVEMENTS[movement]
 
   const props = { cube, allTiles, axis, direction, movement }
-
   return [
     <ConnectedSlice {...props}>{slicedTiles}</ConnectedSlice>,
     ...unslicedTiles,
