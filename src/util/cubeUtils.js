@@ -1,5 +1,5 @@
 import COLORS from './colors'
-import MOVEMENTS from './movements'
+import MOVEMENTS, { TWISTS } from './movements'
 
 export const createTiles = () => {
   const faces = ['up', 'front', 'down', 'left', 'right', 'back']
@@ -11,8 +11,10 @@ export const createTiles = () => {
     for (let j = 0; j < cols.length; j++) {
       for (let k = 0; k < rows.length; k++) {
         const position = faces[i][0] + rows[k] + cols[j]
-        const color = COLORS[position[0]]
-        tiles[position] = { position, color }
+        tiles[position] = {
+          position,
+          backgroundColor: COLORS[position[0]],
+        }
       }
     }
   }
@@ -27,4 +29,8 @@ export const setChanges = (cube, direction) => {
     newTiles[[tile.position]] = tile
     return newTiles
   }, {})
+}
+
+export const randomMoves = () => {
+  return Object.keys(TWISTS).sort(() => Math.random() - 0.5)
 }

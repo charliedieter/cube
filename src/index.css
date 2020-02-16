@@ -44,9 +44,6 @@ li {
   animation-delay: 0.5s;
 }
 
-.home .tile {
-  opacity: 0.05;
-}
 .control {
   cursor: pointer;
   background: blue;
@@ -76,10 +73,10 @@ li {
   width: 400px;
   transition: transform 0.3s linear;
   transform-style: preserve-3d;
+  transform: rotateX(-30deg) rotateY(-30deg);
 }
 #cube.spin {
   animation: spin-cube 6s ease-in-out infinite;
-  /* opacity: 0.9; */
 }
 .tile {
   position: absolute;
@@ -89,6 +86,7 @@ li {
   box-sizing: border-box;
   width: 105px;
   height: 105px;
+  opacity: 0.3;
 }
 .LM-left {
   transform: scaleX(-1) translate(0, -60px) rotate(-110deg);
@@ -128,13 +126,13 @@ li {
 }
 @keyframes spin-cube {
   0% {
-    transform: rotateX(0) rotateY(0);
+    transform: rotateX(45deg) rotateY(45deg);
   }
   50% {
-    transform: rotateX(360deg) rotateY(360deg);
+    transform: rotateX(-315deg) rotateY(-315deg);
   }
   100% {
-    transform: rotateX(0) rotateY(0);
+    transform: rotateX(45deg) rotateY(45deg);
   }
 }
 @keyframes SpinningSlice-left-z {

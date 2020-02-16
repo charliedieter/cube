@@ -1,4 +1,4 @@
-const POSITIONS = {
+export default {
   utl: 'rotateX(90deg) translate3d(50px, -100px, 0)',
   ucl: 'rotateX(90deg) translate3d(50px, 0, 0)',
   ubl: 'rotateX(90deg) translate3d(50px, 100px, 0px)',
@@ -8,7 +8,7 @@ const POSITIONS = {
   utr: 'rotateX(90deg) translate3d(250px, -100px, 0)',
   ucr: 'rotateX(90deg) translate3d(250px, 0, 0)',
   ubr: 'rotateX(90deg) translate3d(250px, 100px, 0)',
-  /*FRONT FACE CUBIES*/
+  /*FRONT FACE*/
   ftl: 'translate3d(50px, 50px, 150px)',
   fcl: 'translate3d(50px, 150px, 150px)',
   fbl: 'translate3d(50px, 250px, 150px)',
@@ -18,7 +18,7 @@ const POSITIONS = {
   ftr: 'translate3d(250px, 50px, 150px)',
   fcr: 'translate3d(250px, 150px, 150px)',
   fbr: 'translate3d(250px, 250px, 150px)',
-  /*DOWN FACE CUBIES*/
+  /*DOWN FACE*/
   dtl: 'rotateX(-90deg) translate3d(50px, -100px, 300px)',
   dcl: 'rotateX(-90deg) translate3d(50px, 0, 300px)',
   dbl: 'rotateX(-90deg) translate3d(50px, 100px, 300px)',
@@ -28,7 +28,7 @@ const POSITIONS = {
   dtr: 'rotateX(-90deg) translate3d(250px, -100px, 300px)',
   dcr: 'rotateX(-90deg) translate3d(250px, 0px, 300px)',
   dbr: 'rotateX(-90deg) translate3d(250px, 100px, 300px)',
-  /*BACK FACE CUBIES*/
+  /*BACK FACE*/
   btl: 'rotateX(-180deg) translate3d(50px, -250px, 150px)',
   bcl: 'rotateX(-180deg) translate3d(50px, -150px, 150px)',
   bbl: 'rotateX(-180deg) translate3d(50px, -50px, 150px)',
@@ -38,7 +38,7 @@ const POSITIONS = {
   btr: 'rotateX(-180deg) translate3d(250px, -250px, 150px)',
   bcr: 'rotateX(-180deg) translate3d(250px, -150px, 150px)',
   bbr: 'rotateX(-180deg) translate3d(250px, -50px, 150px)',
-  /*LEFT FACE CUBIES*/
+  /*LEFT FACE*/
   ltl: 'rotateY(-90deg) translate3d(-100px, 50px, 0px)',
   lcl: 'rotateY(-90deg) translate3d(-100px, 150px, 0px)',
   lbl: 'rotateY(-90deg) translate3d(-100px, 250px, 0px)',
@@ -48,7 +48,7 @@ const POSITIONS = {
   ltr: 'rotateY(-90deg) translate3d(100px, 50px, 0px)',
   lcr: 'rotateY(-90deg) translate3d(100px, 150px, 0px)',
   lbr: 'rotateY(-90deg) translate3d(100px, 250px, 0px)',
-  /*RIGHT FACE CUBIES*/
+  /*RIGHT FACE*/
   rtl: 'rotateY(90deg) translate3d(-100px, 50px, 300px)',
   rcl: 'rotateY(90deg) translate3d(-100px, 150px, 300px)',
   rbl: 'rotateY(90deg) translate3d(-100px, 250px, 300px)',
@@ -59,5 +59,3 @@ const POSITIONS = {
   rcr: 'rotateY(90deg) translate3d(100px, 150px, 300px)',
   rbr: 'rotateY(90deg) translate3d(100px, 250px, 300px)',
 }
-
-export default POSITIONS

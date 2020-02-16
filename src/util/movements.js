@@ -1,5 +1,3 @@
-// Once again, eternally grateful to https://github.com/diervo/html5rubik/blob/master/tutorial/step3/rubik-simple.js for doing all of the heavy lifting here.
-
 export const TWISTS = {
   // 'LM-left': {
   "L'": {
@@ -391,7 +389,7 @@ export const TWISTS = {
   'CE-right': {
     type: 'twist',
     axis: 'y',
-    direciton: 'left',
+    direction: 'left',
     moves: {
       fcl: 'rcl',
       fcc: 'rcc',
