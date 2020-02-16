@@ -1,8 +1,8 @@
-### [live](http://charliedieter.com/cube)
+### [live](https://cube-blond-rho.now.sh)
 
-## Dispatching redux thunks to solve a rubik's cube.
+### A simple, infinitely-spinning rubik's cube.
 
-Would not have been possible without guidance from:
+lots of help found here:
 
 https://github.com/fofr/paulrhayes.com-experiments/tree/master/cube-3d
 
